@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +9,9 @@
     <meta name="description" content="Taller DENJI Moto & Bike Repair: Servicio técnico profesional de motos y bicicletas a domicilio en Santiago, Chile. Mantención, reparación y puesta en marcha en terreno. Sin grúas.">
     
     <!-- Favicon para Navegadores Modernos -->
-    <link rel="icon" type="image/png" href="favicon.png?v=4">
-    <link rel="shortcut icon" type="image/png" href="favicon.png?v=4">
-    <link rel="apple-touch-icon" href="favicon.png?v=4">
+    <link rel="icon" type="image/png" href="favicon.png?v=5">
+    <link rel="shortcut icon" type="image/png" href="favicon.png?v=5">
+    <link rel="apple-touch-icon" href="favicon.png?v=5">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -23,9 +23,6 @@
                         denji: {
                             pink: '#E60067',   // Rosado/Fucsia DENJI
                             dark: '#0D0D0D',   // Negro azabache
-                            light: '#FFFFFF',  // Blanco puro
-                            graybg: '#F8FAFC', // Fondo gris muy claro para contraste
-                            border: '#E2E8F0', // Bordes sutiles
                             accent: '#16A34A'  // Verde activo
                         }
                     }
@@ -54,62 +51,80 @@
         .animate-hero-bg {
             animation: float-zoom 20s infinite alternate ease-in-out;
         }
+
+        /* Textura de Grano de Película (Movie Grain) */
+        .movie-grain {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+        }
     </style>
 </head>
 <body class="bg-white text-gray-900 min-h-screen flex flex-col justify-between selection:bg-denji-pink selection:text-white">
 
     <!-- Header / Navbar Fijo Blanco -->
-    <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm py-3 transition-all duration-300">
+    <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm py-2 transition-all duration-300">
         <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
             <!-- Logo Grande con Color Original -->
-            <a href="#" class="flex items-center py-1">
+            <a href="#taller" class="flex items-center py-1">
                 <img src="logo.png" alt="Taller DENJI Moto & Bike Repair" class="h-20 sm:h-28 w-auto object-contain transition-all duration-300">
             </a>
 
-            <!-- Botón de Contacto Directo -->
-            <a href="https://wa.me/56900000000?text=Hola%20Taller%20DENJI,%20necesito%20cotizar%20un%20servicio%20a%20domicilio" 
-               target="_blank" 
-               class="inline-flex items-center gap-2.5 bg-denji-pink hover:bg-pink-700 text-white font-extrabold px-6 py-3.5 rounded-full transition-all transform hover:scale-105 shadow-md shadow-denji-pink/25">
-                <i data-lucide="message-circle" class="w-5 h-5"></i>
-                <span class="hidden sm:inline">Cotizar por WhatsApp</span>
-                <span class="sm:hidden">Cotizar</span>
-            </a>
+            <!-- Navegación y Botón de Contacto -->
+            <div class="flex items-center gap-6 sm:gap-8">
+                <!-- Enlace al Taller / Hero -->
+                <a href="#taller" class="font-bold text-gray-800 hover:text-denji-pink text-base sm:text-lg transition-colors flex items-center gap-1.5">
+                    <i data-lucide="wrench" class="w-4 h-4 text-denji-pink"></i>
+                    Taller
+                </a>
+
+                <!-- Botón Cotizar WhatsApp -->
+                <a href="https://wa.me/56900000000?text=Hola%20Taller%20DENJI,%20necesito%20cotizar%20un%20servicio%20a%20domicilio" 
+                   target="_blank" 
+                   class="inline-flex items-center gap-2.5 bg-denji-pink hover:bg-pink-700 text-white font-extrabold px-5 py-3 rounded-full transition-all transform hover:scale-105 shadow-md shadow-denji-pink/25 text-sm sm:text-base">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                    <span class="hidden sm:inline">Cotizar por WhatsApp</span>
+                    <span class="sm:hidden">Cotizar</span>
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- HERO SECTION EN FONDO CLARO CON FOTO DE TALLER ANIMADA -->
-    <section class="relative bg-white min-h-screen flex items-center justify-center overflow-hidden pt-36 pb-16">
-        <!-- Imagen de Taller Animada en Fondo -->
+    <!-- HERO SECTION DARK & CINEMATIC CON MOVIE GRAIN Y FADE A BLANCO -->
+    <section id="taller" class="relative bg-denji-dark min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-24">
+        <!-- Imagen Nítida de Taller Animada -->
         <div class="absolute inset-0 z-0 overflow-hidden">
-            <img src="hero.jpg" alt="Taller DENJI Moto & Bike Repair trabajando en terreno en Santiago" class="w-full h-full object-cover object-center animate-hero-bg opacity-35">
-            <!-- Degradado suave hacia blanco -->
-            <div class="absolute inset-0 bg-gradient-to-b from-white/60 via-white/80 to-white"></div>
+            <img src="hero.jpg" alt="Taller DENJI Moto & Bike Repair trabajando en terreno en Santiago" class="w-full h-full object-cover object-center animate-hero-bg opacity-85">
+            
+            <!-- Capa de Grano de Película (Movie Grain) -->
+            <div class="absolute inset-0 movie-grain pointer-events-none z-10"></div>
+
+            <!-- Gradiente Sutil para Legibilidad y Fade Inferior a Blanco -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-white z-20"></div>
         </div>
 
-        <!-- Contenido del Home / Taller -->
-        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+        <!-- Contenido del Taller / Hero -->
+        <div class="relative z-30 max-w-5xl mx-auto px-6 text-center">
             <!-- Badge Taller SEO -->
-            <div class="inline-flex items-center gap-2 bg-gray-900 text-white border border-gray-800 px-5 py-2.5 rounded-full mb-8 shadow-lg">
+            <div class="inline-flex items-center gap-2 bg-black/70 border border-white/20 text-white px-5 py-2.5 rounded-full mb-8 backdrop-blur-md shadow-xl">
                 <span class="w-2.5 h-2.5 rounded-full bg-denji-accent animate-pulse"></span>
-                <span class="text-xs sm:text-sm font-bold tracking-wide uppercase">Taller Móvil Custom &bull; Servicio Técnico en Terreno Santiago</span>
+                <span class="text-xs sm:text-sm font-bold tracking-wide uppercase text-gray-200">Taller Custom Móvil &bull; Servicio a Domicilio Santiago</span>
             </div>
 
-            <!-- H1 Nombre del Home -->
-            <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-none mb-6 text-gray-900 uppercase drop-shadow-sm">
-                TALLER DENJI MOTO & BIKE REPAIR<br>
-                <span class="bg-gradient-to-r from-denji-pink via-pink-600 to-purple-800 bg-clip-text text-transparent">MECÁNICO DE MOTOS A DOMICILIO</span>
+            <!-- H1 Nombre del Taller -->
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-none mb-6 text-white uppercase drop-shadow-2xl">
+                DENJI MOTO REPAIR<br>
+                <span class="bg-gradient-to-r from-denji-pink via-pink-400 to-white bg-clip-text text-transparent">MECÁNICO DE MOTOS A DOMICILIO</span>
             </h1>
 
             <!-- H2 Subtítulo -->
-            <p class="text-lg sm:text-2xl text-gray-700 max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
+            <p class="text-lg sm:text-2xl text-gray-200 max-w-3xl mx-auto mb-10 leading-relaxed font-medium drop-shadow-lg">
                 Especialistas en mantención, reparación y puesta en marcha de motocicletas y bicicletas. Servicio técnico profesional directo en tu casa u oficina sin grúas.
             </p>
 
-            <!-- Botones de Acción -->
+            <!-- Botón de Acción Principal -->
             <div class="flex flex-col sm:flex-row gap-4 w-full max-w-md mx-auto justify-center mb-12">
                 <a href="https://wa.me/56900000000?text=Hola%20Taller%20DENJI,%20necesito%20agendar%20una%20visita%20a%20domicilio" 
                    target="_blank"
-                   class="flex items-center justify-center gap-3 bg-denji-pink hover:bg-pink-700 text-white font-extrabold text-lg px-8 py-4 rounded-2xl transition-all shadow-xl shadow-denji-pink/30 transform hover:-translate-y-1">
+                   class="flex items-center justify-center gap-3 bg-denji-pink hover:bg-pink-700 text-white font-extrabold text-lg px-8 py-4 rounded-2xl transition-all shadow-2xl shadow-denji-pink/40 transform hover:-translate-y-1">
                     <i data-lucide="wrench" class="w-6 h-6"></i>
                     Agendar Servicio en Terreno
                 </a>
@@ -118,7 +133,7 @@
     </section>
 
     <!-- Footer Claro -->
-    <footer class="border-t border-gray-200 py-8 text-center text-sm text-gray-600 bg-gray-50">
+    <footer class="border-t border-gray-200 py-8 text-center text-sm text-gray-600 bg-white">
         <p>&copy; 2026 Taller DENJI Moto & Bike Repair. Santiago, Chile.</p>
     </footer>
 
