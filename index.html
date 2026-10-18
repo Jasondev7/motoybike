@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta Etiquetas SEO -->
+    <title>DENJI | Mecánico de Motos y Bicicletas a Domicilio en Santiago</title>
+    <meta name="description" content="Servicio técnico profesional de motos y bicicletas a domicilio en Santiago, Chile. Mantención, reparación y puesta en marcha en terreno. Sin grúas.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Tailwind CSS (Esta línea le da todos los colores y diseño) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        denji: {
+                            pink: '#E60067',   // Rosado/Fucsia
+                            dark: '#0D0D0D',   // Fondo principal oscuro
+                            card: '#161616',   // Tarjetas
+                            border: '#262626', // Bordes
+                            accent: '#22C55E'  // Verde activo
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+
+        @keyframes subtle-zoom {
+            0% { transform: scale(1.0); }
+            100% { transform: scale(1.05); }
+        }
+        .animate-subtle-zoom {
+            animation: subtle-zoom 15s infinite alternate ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-denji-dark text-white min-h-screen flex flex-col justify-between selection:bg-denji-pink selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="border-b border-denji-border backdrop-blur-md fixed top-0 w-full z-50 bg-denji-dark/90">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Logo Section -->
+            <a href="#" class="flex items-center gap-3">
+                <img src="logo.png" alt="DENJI Moto & Bike Repair" class="h-12 w-auto object-contain">
+            </a>
+
+            <!-- Botón de contacto directo -->
+            <a href="https://wa.me/56900000000?text=Hola%20DENJI,%20necesito%20cotizar%20un%20servicio%20a%20domicilio" 
+               target="_blank" 
+               class="inline-flex items-center gap-2 bg-denji-pink hover:bg-pink-700 text-white font-bold px-5 py-2.5 rounded-full transition-all transform hover:scale-105 shadow-lg shadow-denji-pink/20">
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                <span class="hidden sm:inline">Cotizar por WhatsApp</span>
+                <span class="sm:hidden">Cotizar</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION CON FOTO DE FONDO -->
+    <section class="relative bg-denji-dark min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Imagen de Fondo -->
+        <div class="absolute inset-0 z-0">
+            <img src="hero.jpg" alt="Mecánico Denji Moto & Bike Repair trabajando en taller custom a domicilio en Santiago" class="w-full h-full object-cover object-center scale-105 animate-subtle-zoom">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-denji-dark/85 to-denji-dark"></div>
+        </div>
+
+        <!-- Contenido del Hero -->
+        <div class="relative z-10 max-w-5xl mx-auto px-6 py-16 text-center">
+            <!-- Badge SEO -->
+            <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full mb-8 backdrop-blur-sm shadow-md">
+                <span class="w-2.5 h-2.5 rounded-full bg-denji-accent animate-pulse"></span>
+                <span class="text-xs sm:text-sm font-semibold text-gray-300">Taller Móvil Profesional en Santiago &bull; Servicio a Domicilio</span>
+            </div>
+
+            <!-- H1 Principal SEO -->
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-none mb-6 text-white uppercase">
+                DENJI MOTO REPAIR<br>
+                <span class="bg-gradient-to-r from-denji-pink via-purple-400 to-denji-pink bg-clip-text text-transparent">MECÁNICO DE MOTOS A DOMICILIO</span>
+            </h1>
+
+            <!-- H2 Secundario -->
+            <p class="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+                Especialista en mantención, reparación y puesta en marcha de motocicletas y bicicletas. Atención técnica directa en tu casa u oficina sin grúas ni esperas.
+            </p>
+
+            <!-- Botón CTA -->
+            <div class="flex flex-col sm:flex-row gap-4 w-full max-w-md mx-auto justify-center mb-12">
+                <a href="https://wa.me/56900000000?text=Hola%20DENJI,%20necesito%20agendar%20una%20visita%20a%20domicilio" 
+                   target="_blank"
+                   class="flex items-center justify-center gap-3 bg-denji-pink hover:bg-pink-700 text-white font-extrabold text-lg px-8 py-4 rounded-2xl transition-all shadow-xl shadow-denji-pink/30 transform hover:-translate-y-1">
+                    <i data-lucide="wrench" class="w-6 h-6"></i>
+                    Agendar Servicio en Terreno
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-denji-border py-8 text-center text-sm text-gray-500 bg-denji-dark">
+        <p>&copy; 2026 DENJI Moto & Bike Repair. Santiago, Chile.</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
