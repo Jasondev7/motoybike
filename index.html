@@ -8,10 +8,12 @@
     <title>DENJI | Mecánico de Motos y Bicicletas a Domicilio en Santiago</title>
     <meta name="description" content="Servicio técnico profesional de motos y bicicletas a domicilio en Santiago, Chile. Mantención, reparación y puesta en marcha en terreno. Sin grúas.">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Favicon para Navegadores Modernos -->
+    <link rel="icon" type="image/png" href="favicon.png?v=2">
+    <link rel="shortcut icon" type="image/png" href="favicon.png?v=2">
+    <link rel="apple-touch-icon" href="favicon.png?v=2">
     
-    <!-- Tailwind CSS (Esta línea le da todos los colores y diseño) -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -19,11 +21,11 @@
                 extend: {
                     colors: {
                         denji: {
-                            pink: '#E60067',   // Rosado/Fucsia
-                            dark: '#0D0D0D',   // Fondo principal oscuro
-                            card: '#161616',   // Tarjetas
-                            border: '#262626', // Bordes
-                            accent: '#22C55E'  // Verde activo
+                            pink: '#E60067',   // Rosado/Fucsia DENJI
+                            dark: '#0D0D0D',   // Fondo principal
+                            card: '#161616',   
+                            border: '#262626', 
+                            accent: '#22C55E'  
                         }
                     }
                 }
@@ -38,21 +40,29 @@
 
         @keyframes subtle-zoom {
             0% { transform: scale(1.0); }
-            100% { transform: scale(1.05); }
+            100% { transform: scale(1.04); }
         }
         .animate-subtle-zoom {
             animation: subtle-zoom 15s infinite alternate ease-in-out;
+        }
+
+        /* Efecto de logo blanco sobre fondo oscuro sin cuadro negro */
+        .logo-white-mode {
+            filter: brightness(0) invert(1);
+        }
+        .logo-color-mode {
+            filter: none;
         }
     </style>
 </head>
 <body class="bg-denji-dark text-white min-h-screen flex flex-col justify-between selection:bg-denji-pink selection:text-white">
 
-    <!-- Header / Navbar -->
-    <header class="border-b border-denji-border backdrop-blur-md fixed top-0 w-full z-50 bg-denji-dark/90">
-        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-            <!-- Logo Section -->
+    <!-- Header / Navbar Dinámico (Cambia al hacer scroll) -->
+    <header id="main-header" class="fixed top-0 w-full z-50 transition-all duration-300 bg-black/40 backdrop-blur-md border-b border-white/10 py-4">
+        <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
+            <!-- Logo Dinámico -->
             <a href="#" class="flex items-center gap-3">
-                <img src="logo.png" alt="DENJI Moto & Bike Repair" class="h-12 w-auto object-contain">
+                <img id="nav-logo" src="logo.png" alt="DENJI Moto & Bike Repair" class="h-11 w-auto object-contain transition-all duration-300 logo-white-mode">
             </a>
 
             <!-- Botón de contacto directo -->
@@ -66,38 +76,39 @@
         </div>
     </header>
 
-    <!-- HERO SECTION CON FOTO DE FONDO -->
+    <!-- HERO SECTION CON FOTO TALLER MÁS CLARA Y ESTILO GARAGE -->
     <section class="relative bg-denji-dark min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        <!-- Imagen de Fondo -->
+        <!-- Imagen de Fondo (Menos oscura para destacar el taller) -->
         <div class="absolute inset-0 z-0">
             <img src="hero.jpg" alt="Mecánico Denji Moto & Bike Repair trabajando en taller custom a domicilio en Santiago" class="w-full h-full object-cover object-center scale-105 animate-subtle-zoom">
-            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-denji-dark/85 to-denji-dark"></div>
+            <!-- Gradiente ajustado: deja ver el taller al centro y aclara el ambiente -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-denji-dark"></div>
         </div>
 
         <!-- Contenido del Hero -->
         <div class="relative z-10 max-w-5xl mx-auto px-6 py-16 text-center">
-            <!-- Badge SEO -->
-            <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full mb-8 backdrop-blur-sm shadow-md">
+            <!-- Badge SEO Garage -->
+            <div class="inline-flex items-center gap-2 bg-black/60 border border-white/20 px-4 py-2 rounded-full mb-8 backdrop-blur-md shadow-xl">
                 <span class="w-2.5 h-2.5 rounded-full bg-denji-accent animate-pulse"></span>
-                <span class="text-xs sm:text-sm font-semibold text-gray-300">Taller Móvil Profesional en Santiago &bull; Servicio a Domicilio</span>
+                <span class="text-xs sm:text-sm font-bold tracking-wide uppercase text-gray-200">Taller Custom Móvil &bull; Servicio a Domicilio Santiago</span>
             </div>
 
             <!-- H1 Principal SEO -->
-            <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-none mb-6 text-white uppercase">
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-none mb-6 text-white uppercase drop-shadow-2xl">
                 DENJI MOTO REPAIR<br>
-                <span class="bg-gradient-to-r from-denji-pink via-purple-400 to-denji-pink bg-clip-text text-transparent">MECÁNICO DE MOTOS A DOMICILIO</span>
+                <span class="bg-gradient-to-r from-denji-pink via-pink-400 to-white bg-clip-text text-transparent">MECÁNICO DE MOTOS A DOMICILIO</span>
             </h1>
 
             <!-- H2 Secundario -->
-            <p class="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
-                Especialista en mantención, reparación y puesta en marcha de motocicletas y bicicletas. Atención técnica directa en tu casa u oficina sin grúas ni esperas.
+            <p class="text-lg sm:text-xl text-gray-200 max-w-2xl mx-auto mb-10 leading-relaxed font-medium drop-shadow-lg">
+                Especialista en mantención, reparación y puesta en marcha de motocicletas y bicicletas. Servicio técnico profesional directo en tu casa u oficina.
             </p>
 
-            <!-- Botón CTA -->
+            <!-- Botón CTA Garage -->
             <div class="flex flex-col sm:flex-row gap-4 w-full max-w-md mx-auto justify-center mb-12">
                 <a href="https://wa.me/56900000000?text=Hola%20DENJI,%20necesito%20agendar%20una%20visita%20a%20domicilio" 
                    target="_blank"
-                   class="flex items-center justify-center gap-3 bg-denji-pink hover:bg-pink-700 text-white font-extrabold text-lg px-8 py-4 rounded-2xl transition-all shadow-xl shadow-denji-pink/30 transform hover:-translate-y-1">
+                   class="flex items-center justify-center gap-3 bg-denji-pink hover:bg-pink-700 text-white font-extrabold text-lg px-8 py-4 rounded-2xl transition-all shadow-2xl shadow-denji-pink/40 transform hover:-translate-y-1">
                     <i data-lucide="wrench" class="w-6 h-6"></i>
                     Agendar Servicio en Terreno
                 </a>
@@ -106,12 +117,35 @@
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-denji-border py-8 text-center text-sm text-gray-500 bg-denji-dark">
+    <footer class="border-t border-denji-border py-8 text-center text-sm text-gray-400 bg-denji-dark">
         <p>&copy; 2026 DENJI Moto & Bike Repair. Santiago, Chile.</p>
     </footer>
 
+    <!-- Script de Control de Scroll e Iconos -->
     <script>
         lucide.createIcons();
+
+        // Control dinámico de Navbar al hacer Scroll
+        const header = document.getElementById('main-header');
+        const logo = document.getElementById('nav-logo');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                // Estado al hacer scroll: Barra blanca y logo con color original
+                header.classList.remove('bg-black/40', 'border-white/10');
+                header.classList.add('bg-white', 'border-gray-200', 'shadow-lg');
+                
+                logo.classList.remove('logo-white-mode');
+                logo.classList.add('logo-color-mode');
+            } else {
+                // Estado superior: Barra oscura/transparente y logo blanco
+                header.classList.remove('bg-white', 'border-gray-200', 'shadow-lg');
+                header.classList.add('bg-black/40', 'border-white/10');
+
+                logo.classList.remove('logo-color-mode');
+                logo.classList.add('logo-white-mode');
+            }
+        });
     </script>
 </body>
 </html>
