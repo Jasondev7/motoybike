@@ -9,9 +9,9 @@
     <meta name="description" content="Taller DENJI Moto & Bike Repair: Servicio técnico a domicilio de motos y bicicletas en Santiago. Mantención, reparación y puesta en marcha en terreno.">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png?v=18">
-    <link rel="shortcut icon" type="image/png" href="favicon.png?v=18">
-    <link rel="apple-touch-icon" href="favicon.png?v=18">
+    <link rel="icon" type="image/png" href="favicon.png?v=19">
+    <link rel="shortcut icon" type="image/png" href="favicon.png?v=19">
+    <link rel="apple-touch-icon" href="favicon.png?v=19">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -57,11 +57,6 @@
         .grunge-divider {
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
             background-size: 200px 200px;
-        }
-
-        /* Filtro CSS para convertir logos negros/rojos en Rosado DENJI (#E60067) */
-        .pink-brand-filter {
-            filter: invert(16%) sepia(89%) saturate(6054%) hue-rotate(328deg) brightness(97%) contrast(106%);
         }
 
         /* Efectos de Hover Flotante y Zoom en PC */
@@ -134,7 +129,7 @@
 
         <div class="relative z-30 max-w-5xl mx-auto px-6 text-center pt-12">
             <h1 class="font-marker text-4xl sm:text-6xl md:text-7xl tracking-wide leading-tight mb-6 text-white uppercase drop-shadow-2xl">
-               Denji Moto & Bike Repair<br>
+                DENJI MOTO REPAIR<br>
                 <span class="bg-gradient-to-r from-denji-pink via-pink-400 to-white bg-clip-text text-transparent">MECÁNICO A DOMICILIO</span>
             </h1>
 
@@ -233,7 +228,7 @@
         </div>
     </section>
 
-    <!-- MODAL POPUP DE MARCAS Y MODELOS -->
+    <!-- MODAL POPUP DE MARCAS Y MODELOS CON LOGOS ORIGINALES SOBRE BLANCO -->
     <div id="moto-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4 transition-all">
         <div class="bg-white border-2 border-black rounded-[2.5rem] w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
             
@@ -256,53 +251,53 @@
             <!-- Contenido Dinámico del Modal -->
             <div class="p-6 overflow-y-auto space-y-6 flex-1 bg-white" id="modal-content">
                 
-                <!-- VISTA 1: LOGOS EXACTOS EN ROSADO EN EMBEDDED DATA-URI PERFECTO -->
+                <!-- VISTA 1: LOGOS OFICIALES EN SUS COLORES ORIGINALES -->
                 <div id="brands-view" class="grid grid-cols-2 sm:grid-cols-3 gap-4">
                     
                     <!-- Harley-Davidson -->
-                    <button onclick="selectBrand('Harley-Davidson')" class="bg-white hover:bg-pink-50 border-2 border-gray-200 hover:border-denji-pink p-4 rounded-2xl flex flex-col items-center justify-center gap-2 transition-all transform hover:scale-105 shadow-sm group">
-                        <div class="h-14 w-full flex items-center justify-center">
-                            <img src="https://api.iconify.design/simple-icons:harleydavidson.svg?color=%23E60067" alt="Harley-Davidson" class="h-12 w-auto object-contain group-hover:scale-110 transition-transform">
+                    <button onclick="selectBrand('Harley-Davidson')" class="bg-white hover:bg-gray-50 border-2 border-gray-200 hover:border-denji-pink p-4 rounded-2xl flex flex-col items-center justify-center gap-2 transition-all transform hover:scale-105 shadow-sm group">
+                        <div class="h-16 w-full flex items-center justify-center p-1">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Harley-Davidson_logo.svg" alt="Harley-Davidson" class="max-h-full w-auto object-contain group-hover:scale-110 transition-transform">
                         </div>
                         <span class="font-marker text-xs text-gray-900 group-hover:text-denji-pink">HARLEY-DAVIDSON</span>
                     </button>
 
                     <!-- Royal Enfield -->
-                    <button onclick="selectBrand('Royal Enfield')" class="bg-white hover:bg-pink-50 border-2 border-gray-200 hover:border-denji-pink p-4 rounded-2xl flex flex-col items-center justify-center gap-2 transition-all transform hover:scale-105 shadow-sm group">
-                        <div class="h-14 w-full flex items-center justify-center">
-                            <img src="https://api.iconify.design/simple-icons:royalenfield.svg?color=%23E60067" alt="Royal Enfield" class="h-10 w-auto object-contain group-hover:scale-110 transition-transform">
+                    <button onclick="selectBrand('Royal Enfield')" class="bg-white hover:bg-gray-50 border-2 border-gray-200 hover:border-denji-pink p-4 rounded-2xl flex flex-col items-center justify-center gap-2 transition-all transform hover:scale-105 shadow-sm group">
+                        <div class="h-16 w-full flex items-center justify-center p-1">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Royal_Enfield_logo.svg" alt="Royal Enfield" class="max-h-full w-auto object-contain group-hover:scale-110 transition-transform">
                         </div>
                         <span class="font-marker text-xs text-gray-900 group-hover:text-denji-pink">ROYAL ENFIELD</span>
                     </button>
 
                     <!-- Indian Motorcycles -->
-                    <button onclick="selectBrand('Indian')" class="bg-white hover:bg-pink-50 border-2 border-gray-200 hover:border-denji-pink p-4 rounded-2xl flex flex-col items-center justify-center gap-2 transition-all transform hover:scale-105 shadow-sm group">
-                        <div class="h-14 w-full flex items-center justify-center">
-                            <img src="https://api.iconify.design/simple-icons:indianmotorcycle.svg?color=%23E60067" alt="Indian Motorcycle" class="h-10 w-auto object-contain group-hover:scale-110 transition-transform">
+                    <button onclick="selectBrand('Indian')" class="bg-white hover:bg-gray-50 border-2 border-gray-200 hover:border-denji-pink p-4 rounded-2xl flex flex-col items-center justify-center gap-2 transition-all transform hover:scale-105 shadow-sm group">
+                        <div class="h-16 w-full flex items-center justify-center p-1">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Indian_Motorcycle_logo.svg" alt="Indian Motorcycle" class="max-h-full w-auto object-contain group-hover:scale-110 transition-transform">
                         </div>
                         <span class="font-marker text-xs text-gray-900 group-hover:text-denji-pink">INDIAN</span>
                     </button>
 
                     <!-- Triumph -->
-                    <button onclick="selectBrand('Triumph')" class="bg-white hover:bg-pink-50 border-2 border-gray-200 hover:border-denji-pink p-4 rounded-2xl flex flex-col items-center justify-center gap-2 transition-all transform hover:scale-105 shadow-sm group">
-                        <div class="h-14 w-full flex items-center justify-center">
-                            <img src="https://api.iconify.design/simple-icons:triumph.svg?color=%23E60067" alt="Triumph" class="h-8 w-auto object-contain group-hover:scale-110 transition-transform">
+                    <button onclick="selectBrand('Triumph')" class="bg-white hover:bg-gray-50 border-2 border-gray-200 hover:border-denji-pink p-4 rounded-2xl flex flex-col items-center justify-center gap-2 transition-all transform hover:scale-105 shadow-sm group">
+                        <div class="h-16 w-full flex items-center justify-center p-1">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Triumph_Motorcycles_logo.svg" alt="Triumph" class="max-h-full w-auto object-contain group-hover:scale-110 transition-transform">
                         </div>
                         <span class="font-marker text-xs text-gray-900 group-hover:text-denji-pink">TRIUMPH</span>
                     </button>
 
                     <!-- Honda -->
-                    <button onclick="selectBrand('Honda')" class="bg-white hover:bg-pink-50 border-2 border-gray-200 hover:border-denji-pink p-4 rounded-2xl flex flex-col items-center justify-center gap-2 transition-all transform hover:scale-105 shadow-sm group">
-                        <div class="h-14 w-full flex items-center justify-center">
-                            <img src="https://api.iconify.design/simple-icons:honda.svg?color=%23E60067" alt="Honda" class="h-10 w-auto object-contain group-hover:scale-110 transition-transform">
+                    <button onclick="selectBrand('Honda')" class="bg-white hover:bg-gray-50 border-2 border-gray-200 hover:border-denji-pink p-4 rounded-2xl flex flex-col items-center justify-center gap-2 transition-all transform hover:scale-105 shadow-sm group">
+                        <div class="h-16 w-full flex items-center justify-center p-1">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Honda_Logo.svg" alt="Honda" class="max-h-full w-auto object-contain group-hover:scale-110 transition-transform">
                         </div>
                         <span class="font-marker text-xs text-gray-900 group-hover:text-denji-pink">HONDA</span>
                     </button>
 
                     <!-- Yamaha -->
-                    <button onclick="selectBrand('Yamaha')" class="bg-white hover:bg-pink-50 border-2 border-gray-200 hover:border-denji-pink p-4 rounded-2xl flex flex-col items-center justify-center gap-3 transition-all transform hover:scale-105 shadow-sm group">
-                        <div class="h-14 w-full flex items-center justify-center">
-                            <img src="https://api.iconify.design/simple-icons:yamaha.svg?color=%23E60067" alt="Yamaha" class="h-8 w-auto object-contain group-hover:scale-110 transition-transform">
+                    <button onclick="selectBrand('Yamaha')" class="bg-white hover:bg-gray-50 border-2 border-gray-200 hover:border-denji-pink p-4 rounded-2xl flex flex-col items-center justify-center gap-2 transition-all transform hover:scale-105 shadow-sm group">
+                        <div class="h-16 w-full flex items-center justify-center p-1">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Yamaha_logo.svg" alt="Yamaha" class="max-h-full w-auto object-contain group-hover:scale-110 transition-transform">
                         </div>
                         <span class="font-marker text-xs text-gray-900 group-hover:text-denji-pink">YAMAHA</span>
                     </button>
@@ -323,7 +318,7 @@
                         <i data-lucide="arrow-left" class="w-4 h-4"></i> Volver a Marcas
                     </button>
                     <div id="models-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <!-- Modelos inyectados por JS -->
+                        <!-- Modelos inyectados dinámicamente -->
                     </div>
                 </div>
 
