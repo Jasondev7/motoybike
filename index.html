@@ -36,12 +36,13 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Google Fonts: Inter + Permanent Marker -->
+    <!-- Google Fonts: Inter + Permanent Marker + Special Elite (para efectos tipo ticket de máquina registradora) -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Permanent+Marker&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Permanent+Marker&family=Special+Elite&display=swap');
         
         body { font-family: 'Inter', sans-serif; }
         .font-marker { font-family: 'Permanent Marker', cursive; }
+        .font-ticket { font-family: 'Special Elite', monospace; }
 
         /* Animación de movimiento en la foto principal del hero */
         @keyframes float-zoom {
@@ -57,6 +58,32 @@
         .grunge-divider {
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
             background-size: 200px 200px;
+        }
+
+        /* Efecto de borde rasgado o boleto de máquina */
+        .ticket-border {
+            background: repeating-linear-gradient(45deg, #000, #000 10px, #E60067 10px, #E60067 20px);
+        }
+
+        /* Simulación de Código de Barras */
+        .barcode {
+            display: inline-block;
+            height: 45px;
+            width: 100%;
+            max-width: 280px;
+            background: repeating-linear-gradient(
+                90deg,
+                #000,
+                #000 2px,
+                #fff 2px,
+                #fff 4px,
+                #000 4px,
+                #000 8px,
+                #fff 8px,
+                #fff 9px,
+                #000 9px,
+                #000 14px
+            );
         }
 
         /* Efectos de Hover Flotante y Zoom en PC */
@@ -228,7 +255,7 @@
         </div>
     </section>
 
-    <!-- MODAL POPUP DE MARCAS Y MODELOS CON LOGOS ORIGINALES SOBRE BLANCO -->
+    <!-- MODAL POPUP DE MARCAS Y MODELOS -->
     <div id="moto-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4 transition-all">
         <div class="bg-white border-2 border-black rounded-[2.5rem] w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
             
@@ -251,7 +278,7 @@
             <!-- Contenido Dinámico del Modal -->
             <div class="p-6 overflow-y-auto space-y-6 flex-1 bg-white" id="modal-content">
                 
-                <!-- VISTA 1: LOGOS OFICIALES EN SUS COLORES ORIGINALES -->
+                <!-- VISTA 1: LOGOS OFICIALES -->
                 <div id="brands-view" class="grid grid-cols-2 sm:grid-cols-3 gap-4">
                     
                     <!-- Harley-Davidson -->
@@ -327,16 +354,66 @@
         </div>
     </div>
 
-    <!-- Footer Claro -->
-    <footer class="border-t-2 border-gray-200 py-8 text-center text-sm text-gray-600 bg-white">
-        <p class="font-medium font-marker text-gray-900 text-lg">&copy; 2026 Taller DENJI Moto & Bike Repair. Santiago, Chile.</p>
+    <!-- FOOTER ESTILO TICKET DE BENCINA / CÓDIGO DE BARRAS -->
+    <footer class="bg-denji-dark text-white border-t-4 border-denji-pink pt-12 pb-8 relative overflow-hidden">
+        <!-- Borde superior tipo ticket rasgado decorativo -->
+        <div class="absolute top-0 left-0 right-0 h-2 ticket-border opacity-75"></div>
+
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            
+            <!-- Encabezado del Ticket -->
+            <div class="font-ticket text-xs sm:text-sm tracking-widest text-gray-400 uppercase mb-2">
+                ========================================
+            </div>
+            <h3 class="font-marker text-2xl sm:text-3xl tracking-wide text-white uppercase mb-1">
+                TALLER DENJI MOTO & BIKE REPAIR
+            </h3>
+            <p class="font-ticket text-xs sm:text-sm text-denji-pink tracking-wider uppercase mb-6">
+                // SERVICIO TÉCNICO MÓVIL EN SANTIAGO, CHILE //
+            </p>
+            <div class="font-ticket text-xs sm:text-sm tracking-widest text-gray-400 uppercase mb-8">
+                ========================================
+            </div>
+
+            <!-- Red Social (Instagram) & Info -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8">
+                <a href="https://www.instagram.com/denji.cl/" target="_blank" 
+                   class="inline-flex items-center gap-3 bg-white/10 hover:bg-denji-pink text-white px-6 py-3 rounded-xl border border-white/20 transition-all font-ticket text-sm tracking-wide">
+                    <i data-lucide="instagram" class="w-5 h-5 text-denji-pink group-hover:text-white"></i>
+                    <span>SÍGUENOS EN INSTAGRAM: @denji.cl</span>
+                </a>
+                
+                <a href="https://wa.me/5695546985" target="_blank" 
+                   class="inline-flex items-center gap-3 bg-white/10 hover:bg-denji-pink text-white px-6 py-3 rounded-xl border border-white/20 transition-all font-ticket text-sm tracking-wide">
+                    <i data-lucide="phone-call" class="w-5 h-5 text-denji-pink"></i>
+                    <span>WHATSAPP DIRECTO: +56 9 5546 985</span>
+                </a>
+            </div>
+
+            <!-- Simulación de Código de Barras -->
+            <div class="my-8 flex flex-col items-center justify-center">
+                <div class="bg-white p-3 rounded-lg shadow-lg inline-block">
+                    <div class="barcode"></div>
+                    <div class="font-ticket text-black text-xs font-bold tracking-widest mt-1">
+                        * DENJI-REPAIR-2026-STGO *
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright y Cierre de Ticket -->
+            <div class="text-xs text-gray-400 font-ticket uppercase space-y-1">
+                <p>&copy; 2026 Taller DENJI. Todos los derechos reservados.</p>
+                <p class="text-gray-500">Mecánica Profesional Directo en Tu Terreno</p>
+            </div>
+
+        </div>
     </footer>
 
     <!-- Script de Interacción -->
     <script>
         lucide.createIcons();
 
-        // Modelos por Marca (Sin Himalayan en Royal Enfield)
+        // Modelos por Marca
         const motoDatabase = {
             "Royal Enfield": [
                 { name: "Hunter 350", desc: "Monocilíndrico 349cc Custom Urban" },
