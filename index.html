@@ -9,9 +9,9 @@
     <meta name="description" content="Taller DENJI Moto & Bike Repair: Servicio técnico profesional de motos y bicicletas a domicilio en Santiago, Chile. Mantención, reparación y puesta en marcha en terreno. Sin grúas.">
     
     <!-- Favicon para Navegadores Modernos -->
-    <link rel="icon" type="image/png" href="favicon.png?v=5">
-    <link rel="shortcut icon" type="image/png" href="favicon.png?v=5">
-    <link rel="apple-touch-icon" href="favicon.png?v=5">
+    <link rel="icon" type="image/png" href="favicon.png?v=6">
+    <link rel="shortcut icon" type="image/png" href="favicon.png?v=6">
+    <link rel="apple-touch-icon" href="favicon.png?v=6">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -60,17 +60,17 @@
 </head>
 <body class="bg-white text-gray-900 min-h-screen flex flex-col justify-between selection:bg-denji-pink selection:text-white">
 
-    <!-- Header / Navbar Fijo Blanco -->
-    <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm py-2 transition-all duration-300">
+    <!-- Header / Navbar Fijo Blanco 100% Opaco -->
+    <header class="sticky top-0 w-full z-50 bg-white border-b border-gray-200 shadow-sm py-2">
         <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
             <!-- Logo Grande con Color Original -->
             <a href="#taller" class="flex items-center py-1">
-                <img src="logo.png" alt="Taller DENJI Moto & Bike Repair" class="h-20 sm:h-28 w-auto object-contain transition-all duration-300">
+                <img src="logo.png" alt="Taller DENJI Moto & Bike Repair" class="h-20 sm:h-28 w-auto object-contain">
             </a>
 
             <!-- Navegación y Botón de Contacto -->
             <div class="flex items-center gap-6 sm:gap-8">
-                <!-- Enlace al Taller / Hero -->
+                <!-- Enlace al Taller -->
                 <a href="#taller" class="font-bold text-gray-800 hover:text-denji-pink text-base sm:text-lg transition-colors flex items-center gap-1.5">
                     <i data-lucide="wrench" class="w-4 h-4 text-denji-pink"></i>
                     Taller
@@ -88,8 +88,8 @@
         </div>
     </header>
 
-    <!-- HERO SECTION DARK & CINEMATIC CON MOVIE GRAIN Y FADE A BLANCO -->
-    <section id="taller" class="relative bg-denji-dark min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-24">
+    <!-- HERO SECTION INICIA JUSTO DEBAJO DEL HEADER SIN CORTE -->
+    <section id="taller" class="relative bg-denji-dark min-h-[calc(100vh-100px)] flex items-center justify-center overflow-hidden py-20">
         <!-- Imagen Nítida de Taller Animada -->
         <div class="absolute inset-0 z-0 overflow-hidden">
             <img src="hero.jpg" alt="Taller DENJI Moto & Bike Repair trabajando en terreno en Santiago" class="w-full h-full object-cover object-center animate-hero-bg opacity-85">
@@ -97,8 +97,8 @@
             <!-- Capa de Grano de Película (Movie Grain) -->
             <div class="absolute inset-0 movie-grain pointer-events-none z-10"></div>
 
-            <!-- Gradiente Sutil para Legibilidad y Fade Inferior a Blanco -->
-            <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-white z-20"></div>
+            <!-- Gradiente Sutil y Fade Inferior a Blanco -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-white z-20"></div>
         </div>
 
         <!-- Contenido del Taller / Hero -->
@@ -121,7 +121,7 @@
             </p>
 
             <!-- Botón de Acción Principal -->
-            <div class="flex flex-col sm:flex-row gap-4 w-full max-w-md mx-auto justify-center mb-12">
+            <div class="flex flex-col sm:flex-row gap-4 w-full max-w-md mx-auto justify-center mb-6">
                 <a href="https://wa.me/56900000000?text=Hola%20Taller%20DENJI,%20necesito%20agendar%20una%20visita%20a%20domicilio" 
                    target="_blank"
                    class="flex items-center justify-center gap-3 bg-denji-pink hover:bg-pink-700 text-white font-extrabold text-lg px-8 py-4 rounded-2xl transition-all shadow-2xl shadow-denji-pink/40 transform hover:-translate-y-1">
