@@ -9,9 +9,9 @@
     <meta name="description" content="Taller DENJI Moto & Bike Repair: Servicio técnico a domicilio de motos y bicicletas en Santiago. Mantención, reparación y puesta en marcha en terreno.">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png?v=13">
-    <link rel="shortcut icon" type="image/png" href="favicon.png?v=13">
-    <link rel="apple-touch-icon" href="favicon.png?v=13">
+    <link rel="icon" type="image/png" href="favicon.png?v=14">
+    <link rel="shortcut icon" type="image/png" href="favicon.png?v=14">
+    <link rel="apple-touch-icon" href="favicon.png?v=14">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -57,6 +57,11 @@
         .grunge-divider {
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
             background-size: 200px 200px;
+        }
+
+        /* Filtro CSS para convertir cualquier SVG negro en el Rosado DENJI (#E60067) */
+        .brand-logo-pink {
+            filter: invert(16%) sepia(89%) saturate(6054%) hue-rotate(328deg) brightness(97%) contrast(106%);
         }
 
         /* Efectos de Hover Flotante y Zoom en PC */
@@ -162,7 +167,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE SERVICIOS - TARJETAS CON BOTÓN DE CONSULTA Y POPUP -->
+    <!-- SECCIÓN DE SERVICIOS -->
     <section id="servicios" class="py-20 bg-white text-gray-900">
         <div class="max-w-6xl mx-auto px-6">
             
@@ -183,17 +188,13 @@
                 <div class="card-hover-box relative rounded-[2.5rem] overflow-hidden border-2 border-black bg-denji-dark shadow-xl flex flex-col justify-between group">
                     <div class="relative h-80 sm:h-[24rem] w-full overflow-hidden">
                         <img src="rueda_moto.jpg" alt="Mecánica de Motos Denji Repair" class="zoom-img w-full h-full object-cover object-center">
-                        
-                        <!-- Capa de Degradado Permanente -->
                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
 
-                        <!-- Título en la Imagen (Visibilidad Inicial) -->
                         <div class="absolute bottom-6 left-6 right-6 z-10 lg:group-hover:opacity-0 transition-opacity">
                             <span class="font-marker text-denji-pink text-sm uppercase tracking-wider bg-black/60 px-3 py-1 rounded-full border border-white/10">Servicio Motos</span>
                             <h3 class="font-marker text-3xl sm:text-4xl text-white uppercase mt-2">Mecánica de Motos</h3>
                         </div>
 
-                        <!-- OVERLAY DE INFO EN HOVER (PC) -->
                         <div class="hover-info hidden lg:flex absolute inset-0 z-20 flex-col justify-center p-8 bg-denji-dark/90 backdrop-blur-sm text-white">
                             <h3 class="font-marker text-4xl uppercase text-white mb-4">Mecánica de Motos</h3>
                             <p class="text-gray-200 text-base leading-relaxed font-medium">
@@ -202,7 +203,6 @@
                         </div>
                     </div>
 
-                    <!-- BOTÓN DE CONSULTA MOTOS (Abre el Pop-up de Selección) -->
                     <div class="p-6 bg-denji-dark text-white border-t border-gray-800 flex flex-col gap-3">
                         <p class="lg:hidden text-gray-300 text-xs leading-relaxed">
                             Afinamiento, frenos, kit de arrastre y diagnóstico eléctrico a domicilio.
@@ -219,17 +219,13 @@
                 <div class="card-hover-box relative rounded-[2.5rem] overflow-hidden border-2 border-black bg-denji-dark shadow-xl flex flex-col justify-between group">
                     <div class="relative h-80 sm:h-[24rem] w-full overflow-hidden">
                         <img src="rueda_bici.jpg" alt="Mecánica de Bicicletas Denji Repair" class="zoom-img w-full h-full object-cover object-center">
-                        
-                        <!-- Capa de Degradado Permanente -->
                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
 
-                        <!-- Título en la Imagen (Visibilidad Inicial) -->
                         <div class="absolute bottom-6 left-6 right-6 z-10 lg:group-hover:opacity-0 transition-opacity">
                             <span class="font-marker text-denji-pink text-sm uppercase tracking-wider bg-black/60 px-3 py-1 rounded-full border border-white/10">Servicio Bicis</span>
                             <h3 class="font-marker text-3xl sm:text-4xl text-white uppercase mt-2">Mecánica de Bicicletas</h3>
                         </div>
 
-                        <!-- OVERLAY DE INFO EN HOVER (PC) -->
                         <div class="hover-info hidden lg:flex absolute inset-0 z-20 flex-col justify-center p-8 bg-denji-dark/90 backdrop-blur-sm text-white">
                             <h3 class="font-marker text-4xl uppercase text-white mb-4">Mecánica de Bicicletas</h3>
                             <p class="text-gray-200 text-base leading-relaxed font-medium">
@@ -238,7 +234,6 @@
                         </div>
                     </div>
 
-                    <!-- BOTÓN DE CONSULTA BICIS (Redirige directo a WhatsApp con Mensaje Predeterminado) -->
                     <div class="p-6 bg-denji-dark text-white border-t border-gray-800 flex flex-col gap-3">
                         <p class="lg:hidden text-gray-300 text-xs leading-relaxed">
                             Mantenimiento técnico especializado para bicicletas Gravel, Fixie y Ruta en terreno.
@@ -256,23 +251,22 @@
         </div>
     </section>
 
-    <!-- MODAL POPUP PARA SELECCIÓN DE MOTOS POR MARCA -->
+    <!-- MODAL POPUP: SELECCIÓN DE MOTOS Y MARCAS CON FONDO BLANCO Y LOGOS ROSADOS -->
     <div id="moto-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4 transition-all">
-        <div class="bg-denji-dark border-2 border-black rounded-[2.5rem] w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
+        <div class="bg-white border-2 border-black rounded-[2.5rem] w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
             
             <!-- Header del Modal -->
-            <div class="p-6 border-b border-gray-800 flex items-center justify-between bg-black/40">
+            <div class="p-6 border-b border-gray-200 flex items-center justify-between bg-gray-50">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-xl bg-denji-pink flex items-center justify-center text-white font-marker shadow-md">
                         <i data-lucide="wrench" class="w-5 h-5"></i>
                     </div>
                     <div>
-                        <h3 class="font-marker text-2xl text-white uppercase" id="modal-title">Selecciona la Marca</h3>
-                        <p class="text-xs text-gray-400 font-medium" id="modal-subtitle">Elige la marca de tu moto para ver los modelos disponibles</p>
+                        <h3 class="font-marker text-2xl text-gray-900 uppercase" id="modal-title">Selecciona la Marca</h3>
+                        <p class="text-xs text-gray-500 font-medium" id="modal-subtitle">Elige la marca de tu moto para ver los modelos disponibles</p>
                     </div>
                 </div>
-                <!-- Botón Cerrar -->
-                <button onclick="closeMotoModal()" class="w-10 h-10 rounded-full bg-gray-800 text-gray-300 hover:text-white hover:bg-denji-pink flex items-center justify-center transition-all">
+                <button onclick="closeMotoModal()" class="w-10 h-10 rounded-full bg-gray-200 text-gray-700 hover:text-white hover:bg-denji-pink flex items-center justify-center transition-all">
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
             </div>
@@ -280,66 +274,56 @@
             <!-- Contenido Dinámico del Modal -->
             <div class="p-6 overflow-y-auto space-y-6 flex-1" id="modal-content">
                 
-                <!-- VISTA 1: LOGOS DE MARCAS EN ROSADO CORPORATIVO -->
+                <!-- VISTA 1: MARCAS CON LOGOS EN ROSADO (#E60067) Y FONDO BLANCO -->
                 <div id="brands-view" class="grid grid-cols-2 sm:grid-cols-3 gap-4">
                     
-                    <!-- Marca: Royal Enfield -->
-                    <button onclick="selectBrand('Royal Enfield')" class="bg-gray-900/80 hover:bg-denji-pink/10 border-2 border-denji-pink/40 hover:border-denji-pink p-6 rounded-2xl flex flex-col items-center justify-center gap-3 transition-all transform hover:scale-105 group">
-                        <div class="w-14 h-14 rounded-full bg-denji-pink/20 text-denji-pink flex items-center justify-center group-hover:bg-denji-pink group-hover:text-white transition-all">
-                            <i data-lucide="shield" class="w-7 h-7"></i>
-                        </div>
-                        <span class="font-marker text-lg text-white group-hover:text-denji-pink transition-colors">ROYAL ENFIELD</span>
+                    <!-- Royal Enfield -->
+                    <button onclick="selectBrand('Royal Enfield')" class="bg-white hover:bg-pink-50 border-2 border-gray-200 hover:border-denji-pink p-5 rounded-2xl flex flex-col items-center justify-center gap-2 transition-all transform hover:scale-105 shadow-sm group">
+                        <img src="https://cdn.simpleicons.org/royalenfield/000000" alt="Royal Enfield" class="h-10 w-auto object-contain brand-logo-pink group-hover:scale-110 transition-transform">
+                        <span class="font-marker text-sm text-gray-800 group-hover:text-denji-pink transition-colors">ROYAL ENFIELD</span>
                     </button>
 
-                    <!-- Marca: Harley-Davidson -->
-                    <button onclick="selectBrand('Harley-Davidson')" class="bg-gray-900/80 hover:bg-denji-pink/10 border-2 border-denji-pink/40 hover:border-denji-pink p-6 rounded-2xl flex flex-col items-center justify-center gap-3 transition-all transform hover:scale-105 group">
-                        <div class="w-14 h-14 rounded-full bg-denji-pink/20 text-denji-pink flex items-center justify-center group-hover:bg-denji-pink group-hover:text-white transition-all">
-                            <i data-lucide="flame" class="w-7 h-7"></i>
-                        </div>
-                        <span class="font-marker text-lg text-white group-hover:text-denji-pink transition-colors">HARLEY-DAVIDSON</span>
+                    <!-- Harley-Davidson -->
+                    <button onclick="selectBrand('Harley-Davidson')" class="bg-white hover:bg-pink-50 border-2 border-gray-200 hover:border-denji-pink p-5 rounded-2xl flex flex-col items-center justify-center gap-2 transition-all transform hover:scale-105 shadow-sm group">
+                        <img src="https://cdn.simpleicons.org/harleydavidson/000000" alt="Harley Davidson" class="h-10 w-auto object-contain brand-logo-pink group-hover:scale-110 transition-transform">
+                        <span class="font-marker text-sm text-gray-800 group-hover:text-denji-pink transition-colors">HARLEY</span>
                     </button>
 
-                    <!-- Marca: Triumph -->
-                    <button onclick="selectBrand('Triumph')" class="bg-gray-900/80 hover:bg-denji-pink/10 border-2 border-denji-pink/40 hover:border-denji-pink p-6 rounded-2xl flex flex-col items-center justify-center gap-3 transition-all transform hover:scale-105 group">
-                        <div class="w-14 h-14 rounded-full bg-denji-pink/20 text-denji-pink flex items-center justify-center group-hover:bg-denji-pink group-hover:text-white transition-all">
-                            <i data-lucide="crown" class="w-7 h-7"></i>
-                        </div>
-                        <span class="font-marker text-lg text-white group-hover:text-denji-pink transition-colors">TRIUMPH</span>
+                    <!-- Triumph -->
+                    <button onclick="selectBrand('Triumph')" class="bg-white hover:bg-pink-50 border-2 border-gray-200 hover:border-denji-pink p-5 rounded-2xl flex flex-col items-center justify-center gap-2 transition-all transform hover:scale-105 shadow-sm group">
+                        <img src="https://cdn.simpleicons.org/triumph/000000" alt="Triumph" class="h-10 w-auto object-contain brand-logo-pink group-hover:scale-110 transition-transform">
+                        <span class="font-marker text-sm text-gray-800 group-hover:text-denji-pink transition-colors">TRIUMPH</span>
                     </button>
 
-                    <!-- Marca: Indian -->
-                    <button onclick="selectBrand('Indian')" class="bg-gray-900/80 hover:bg-denji-pink/10 border-2 border-denji-pink/40 hover:border-denji-pink p-6 rounded-2xl flex flex-col items-center justify-center gap-3 transition-all transform hover:scale-105 group">
-                        <div class="w-14 h-14 rounded-full bg-denji-pink/20 text-denji-pink flex items-center justify-center group-hover:bg-denji-pink group-hover:text-white transition-all">
-                            <i data-lucide="compass" class="w-7 h-7"></i>
-                        </div>
-                        <span class="font-marker text-lg text-white group-hover:text-denji-pink transition-colors">INDIAN</span>
+                    <!-- Indian Motorcycles -->
+                    <button onclick="selectBrand('Indian')" class="bg-white hover:bg-pink-50 border-2 border-gray-200 hover:border-denji-pink p-5 rounded-2xl flex flex-col items-center justify-center gap-2 transition-all transform hover:scale-105 shadow-sm group">
+                        <img src="https://cdn.simpleicons.org/indianmotorcycle/000000" alt="Indian" class="h-10 w-auto object-contain brand-logo-pink group-hover:scale-110 transition-transform">
+                        <span class="font-marker text-sm text-gray-800 group-hover:text-denji-pink transition-colors">INDIAN</span>
                     </button>
 
-                    <!-- Marca: Honda -->
-                    <button onclick="selectBrand('Honda')" class="bg-gray-900/80 hover:bg-denji-pink/10 border-2 border-denji-pink/40 hover:border-denji-pink p-6 rounded-2xl flex flex-col items-center justify-center gap-3 transition-all transform hover:scale-105 group">
-                        <div class="w-14 h-14 rounded-full bg-denji-pink/20 text-denji-pink flex items-center justify-center group-hover:bg-denji-pink group-hover:text-white transition-all">
-                            <i data-lucide="zap" class="w-7 h-7"></i>
-                        </div>
-                        <span class="font-marker text-lg text-white group-hover:text-denji-pink transition-colors">HONDA</span>
+                    <!-- Honda -->
+                    <button onclick="selectBrand('Honda')" class="bg-white hover:bg-pink-50 border-2 border-gray-200 hover:border-denji-pink p-5 rounded-2xl flex flex-col items-center justify-center gap-2 transition-all transform hover:scale-105 shadow-sm group">
+                        <img src="https://cdn.simpleicons.org/honda/000000" alt="Honda" class="h-10 w-auto object-contain brand-logo-pink group-hover:scale-110 transition-transform">
+                        <span class="font-marker text-sm text-gray-800 group-hover:text-denji-pink transition-colors">HONDA</span>
                     </button>
 
                     <!-- Otra Marca -->
-                    <button onclick="sendGeneralMotoQuery()" class="bg-gray-900/80 hover:bg-denji-pink/10 border-2 border-gray-700 hover:border-denji-pink p-6 rounded-2xl flex flex-col items-center justify-center gap-3 transition-all transform hover:scale-105 group">
-                        <div class="w-14 h-14 rounded-full bg-gray-800 text-gray-300 flex items-center justify-center group-hover:bg-denji-pink group-hover:text-white transition-all">
-                            <i data-lucide="plus" class="w-7 h-7"></i>
+                    <button onclick="sendGeneralMotoQuery()" class="bg-white hover:bg-pink-50 border-2 border-dashed border-gray-300 hover:border-denji-pink p-5 rounded-2xl flex flex-col items-center justify-center gap-2 transition-all transform hover:scale-105 shadow-sm group">
+                        <div class="w-10 h-10 rounded-full bg-pink-100 text-denji-pink flex items-center justify-center group-hover:bg-denji-pink group-hover:text-white transition-all">
+                            <i data-lucide="plus" class="w-6 h-6"></i>
                         </div>
-                        <span class="font-marker text-lg text-white group-hover:text-denji-pink transition-colors">OTRA MARCA</span>
+                        <span class="font-marker text-sm text-gray-800 group-hover:text-denji-pink transition-colors">OTRA MARCA</span>
                     </button>
 
                 </div>
 
-                <!-- VISTA 2: MODELOS CON FOTO (Se genera dinámicamente según la marca seleccionada) -->
+                <!-- VISTA 2: MODELOS CON FOTO LIMPIA SOBRE FONDO BLANCO -->
                 <div id="models-view" class="hidden">
-                    <button onclick="backToBrands()" class="inline-flex items-center gap-2 font-marker text-denji-pink hover:text-white mb-4 text-sm transition-colors">
+                    <button onclick="backToBrands()" class="inline-flex items-center gap-2 font-marker text-denji-pink hover:text-black mb-4 text-sm transition-colors">
                         <i data-lucide="arrow-left" class="w-4 h-4"></i> Volver a Marcas
                     </button>
                     <div id="models-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <!-- Los modelos de motos se renderizan por JS -->
+                        <!-- Se renderizan los modelos dinámicamente -->
                     </div>
                 </div>
 
@@ -353,36 +337,35 @@
         <p class="font-medium font-marker text-gray-900 text-lg">&copy; 2026 Taller DENJI Moto & Bike Repair. Santiago, Chile.</p>
     </footer>
 
-    <!-- Script de Lucide e Interacción del Popup -->
+    <!-- Script de Interacción -->
     <script>
         lucide.createIcons();
 
-        // Base de Datos de Modelos por Marca (Fácil de ampliar)
+        // Fotos de motos recortadas/aisladas sobre fondo blanco tipo catálogo
         const motoDatabase = {
             "Royal Enfield": [
-                { name: "Hunter 350", image: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=600&q=80" },
-                { name: "Classic 350", image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=600&q=80" },
-                { name: "Meteor 350", image: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=600&q=80" },
-                { name: "Interceptor 650", image: "https://images.unsplash.com/photo-1558981359-219d6364c9c8?auto=format&fit=crop&w=600&q=80" }
+                { name: "Hunter 350", image: "https://www.royalenfield.com/content/dam/royal-enfield/india/motorcycles/hunter-350/colors/dapper-grey/dapper-grey-000.png" },
+                { name: "Classic 350", image: "https://www.royalenfield.com/content/dam/royal-enfield/india/motorcycles/classic-350/colors/studio-shots/halcyon-black/01.png" },
+                { name: "Meteor 350", image: "https://www.royalenfield.com/content/dam/royal-enfield/india/motorcycles/meteor-350/colors/fireball-yellow/01.png" },
+                { name: "Interceptor 650", image: "https://www.royalenfield.com/content/dam/royal-enfield/india/motorcycles/interceptor-650/colors/canyon-red/01.png" }
             ],
             "Harley-Davidson": [
-                { name: "Iron 883", image: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=600&q=80" },
-                { name: "Forty-Eight", image: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=600&q=80" }
+                { name: "Iron 883", image: "https://www.harley-davidson.com/content/dam/h-d/images/product-images/bikes/motorcycle/2022/2022-iron-883/2022-iron-883-f57/2022-iron-883-f57-motorcycle.png" },
+                { name: "Forty-Eight", image: "https://www.harley-davidson.com/content/dam/h-d/images/product-images/bikes/motorcycle/2022/2022-forty-eight/2022-forty-eight-f58/2022-forty-eight-f58-motorcycle.png" }
             ],
             "Triumph": [
-                { name: "Street Twin", image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=600&q=80" },
-                { name: "Bonneville T120", image: "https://images.unsplash.com/photo-1558981359-219d6364c9c8?auto=format&fit=crop&w=600&q=80" }
+                { name: "Street Twin / Speed 400", image: "https://images.triumphmotorcycles.co.uk/media/images/motorcycles/modern-classics/speed-400-my24-carnival-red.png" },
+                { name: "Bonneville T120", image: "https://images.triumphmotorcycles.co.uk/media/images/motorcycles/modern-classics/bonneville-t120-my24-jet-black.png" }
             ],
             "Indian": [
-                { name: "Scout Bobber", image: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=600&q=80" }
+                { name: "Scout Bobber", image: "https://cdn1.polaris.com/globalassets/ind/2024/model/vehicle-cards/scout-bobber-black-metallic.png" }
             ],
             "Honda": [
-                { name: "CB300R / CB500F", image: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=600&q=80" },
-                { name: "Rebel 500", image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=600&q=80" }
+                { name: "Rebel 500", image: "https://powersports.honda.com/images/bikes/models/2024/rebel-500/gallery/side.png" },
+                { name: "CB300R", image: "https://powersports.honda.com/images/bikes/models/2024/cb300r/gallery/side.png" }
             ]
         };
 
-        // Lógica del Pop-up Modal
         function openMotoModal() {
             document.getElementById('moto-modal').classList.remove('hidden');
             backToBrands();
@@ -409,17 +392,17 @@
                 const whatsappUrl = `https://wa.me/5695546985?text=${message}`;
 
                 modelsGrid.innerHTML += `
-                    <a href="${whatsappUrl}" target="_blank" class="bg-gray-900 border-2 border-gray-800 hover:border-denji-pink rounded-2xl overflow-hidden group transition-all transform hover:scale-105 shadow-lg flex flex-col">
-                        <div class="h-40 w-full overflow-hidden">
-                            <img src="${model.image}" alt="${brandName} ${model.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <a href="${whatsappUrl}" target="_blank" class="bg-white border-2 border-gray-200 hover:border-denji-pink rounded-2xl p-4 group transition-all transform hover:scale-105 shadow-sm flex flex-col justify-between items-center text-center">
+                        <div class="h-32 w-full flex items-center justify-center overflow-hidden mb-3">
+                            <img src="${model.image}" alt="${brandName} ${model.name}" class="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-300">
                         </div>
-                        <div class="p-4 flex items-center justify-between bg-black/60">
-                            <div>
-                                <span class="text-xs font-bold text-denji-pink uppercase">${brandName}</span>
-                                <h4 class="font-marker text-lg text-white">${model.name}</h4>
+                        <div class="w-full flex items-center justify-between pt-2 border-t border-gray-100">
+                            <div class="text-left">
+                                <span class="text-[10px] font-bold text-denji-pink uppercase tracking-wider">${brandName}</span>
+                                <h4 class="font-marker text-base text-gray-900">${model.name}</h4>
                             </div>
-                            <div class="w-9 h-9 rounded-full bg-denji-pink text-white flex items-center justify-center shadow-md">
-                                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                            <div class="w-8 h-8 rounded-full bg-denji-pink text-white flex items-center justify-center shadow-md">
+                                <i data-lucide="message-circle" class="w-4 h-4"></i>
                             </div>
                         </div>
                     </a>
