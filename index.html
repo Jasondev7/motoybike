@@ -9,9 +9,9 @@
     <meta name="description" content="Taller DENJI Moto & Bike Repair: Servicio técnico profesional de motos y bicicletas a domicilio en Santiago, Chile. Mantención, reparación y puesta en marcha en terreno. Sin grúas.">
     
     <!-- Favicon para Navegadores Modernos -->
-    <link rel="icon" type="image/png" href="favicon.png?v=6">
-    <link rel="shortcut icon" type="image/png" href="favicon.png?v=6">
-    <link rel="apple-touch-icon" href="favicon.png?v=6">
+    <link rel="icon" type="image/png" href="favicon.png?v=7">
+    <link rel="shortcut icon" type="image/png" href="favicon.png?v=7">
+    <link rel="apple-touch-icon" href="favicon.png?v=7">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -69,12 +69,18 @@
             </a>
 
             <!-- Navegación y Botón de Contacto -->
-            <div class="flex items-center gap-6 sm:gap-8">
-                <!-- Enlace al Taller -->
-                <a href="#taller" class="font-bold text-gray-800 hover:text-denji-pink text-base sm:text-lg transition-colors flex items-center gap-1.5">
-                    <i data-lucide="wrench" class="w-4 h-4 text-denji-pink"></i>
-                    Taller
-                </a>
+            <div class="flex items-center gap-5 sm:gap-8">
+                <!-- Enlaces de Menú -->
+                <nav class="hidden md:flex items-center gap-6">
+                    <a href="#taller" class="font-bold text-gray-800 hover:text-denji-pink text-base transition-colors flex items-center gap-1.5">
+                        <i data-lucide="wrench" class="w-4 h-4 text-denji-pink"></i>
+                        Taller
+                    </a>
+                    <a href="#servicios" class="font-bold text-gray-800 hover:text-denji-pink text-base transition-colors flex items-center gap-1.5">
+                        <i data-lucide="grid" class="w-4 h-4 text-denji-pink"></i>
+                        Servicios
+                    </a>
+                </nav>
 
                 <!-- Botón Cotizar WhatsApp -->
                 <a href="https://wa.me/56900000000?text=Hola%20Taller%20DENJI,%20necesito%20cotizar%20un%20servicio%20a%20domicilio" 
@@ -88,7 +94,7 @@
         </div>
     </header>
 
-    <!-- HERO SECTION INICIA JUSTO DEBAJO DEL HEADER SIN CORTE -->
+    <!-- HERO SECTION DEBAJO DEL HEADER -->
     <section id="taller" class="relative bg-denji-dark min-h-[calc(100vh-100px)] flex items-center justify-center overflow-hidden py-20">
         <!-- Imagen Nítida de Taller Animada -->
         <div class="absolute inset-0 z-0 overflow-hidden">
@@ -128,6 +134,122 @@
                     <i data-lucide="wrench" class="w-6 h-6"></i>
                     Agendar Servicio en Terreno
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE SERVICIOS - BENTO GRID -->
+    <section id="servicios" class="py-24 bg-white text-gray-900">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <!-- Encabezado de la Sección -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-denji-pink font-black uppercase tracking-widest text-sm bg-pink-50 px-4 py-1.5 rounded-full border border-pink-100">
+                    Servicios Especializados
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight mt-4 mb-4 text-gray-900">
+                    ¿A qué nos dedicamos?
+                </h2>
+                <p class="text-gray-600 text-lg font-medium">
+                    Servicio técnico especializado para motocicletas de todos los estilos y bicicletas. Nos trasladamos con nuestras herramientas hasta tu ubicación.
+                </p>
+            </div>
+
+            <!-- Bento Grid Structure -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Bento Item 1: Mecánica de Motos (Tarjeta Grande 2 Columnas) -->
+                <div class="md:col-span-2 bg-gradient-to-br from-gray-900 to-black text-white p-8 sm:p-10 rounded-3xl shadow-xl flex flex-col justify-between border border-gray-800 relative overflow-hidden group">
+                    <div class="absolute -right-10 -bottom-10 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i data-lucide="bike" class="w-64 h-64 text-white"></i>
+                    </div>
+                    
+                    <div class="relative z-10 mb-8">
+                        <div class="w-14 h-14 rounded-2xl bg-denji-pink text-white flex items-center justify-center mb-6 shadow-lg shadow-denji-pink/30">
+                            <i data-lucide="disc" class="w-8 h-8"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-denji-pink">Servicio Principal</span>
+                        <h3 class="text-2xl sm:text-3xl font-black uppercase mt-1 mb-3">
+                            Mecánica y Mantención de Motos
+                        </h3>
+                        <p class="text-gray-300 leading-relaxed max-w-xl">
+                            Atención integral para motocicletas Custom, Touring, Scooter y Calle. Realizamos afinamiento de motor, cambio de aceite y filtros, regulación de válvulas, mantención de frenos, kit de arrastre y diagnóstico eléctrico.
+                        </p>
+                    </div>
+
+                    <div class="relative z-10 flex flex-wrap gap-2 pt-4 border-t border-gray-800">
+                        <span class="bg-gray-800/80 text-gray-300 text-xs font-bold px-3 py-1.5 rounded-lg border border-gray-700">Royal Enfield</span>
+                        <span class="bg-gray-800/80 text-gray-300 text-xs font-bold px-3 py-1.5 rounded-lg border border-gray-700">Honda</span>
+                        <span class="bg-gray-800/80 text-gray-300 text-xs font-bold px-3 py-1.5 rounded-lg border border-gray-700">Yamaha</span>
+                        <span class="bg-gray-800/80 text-gray-300 text-xs font-bold px-3 py-1.5 rounded-lg border border-gray-700">Scooters & Custom</span>
+                    </div>
+                </div>
+
+                <!-- Bento Item 2: Servicio Técnico de Bicicletas (Tarjeta Normal) -->
+                <div class="bg-gray-50 border border-gray-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-gray-900 text-white flex items-center justify-center mb-6 shadow-md">
+                            <i data-lucide="bike" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-gray-500">Mecánica de Precisión</span>
+                        <h3 class="text-xl font-black uppercase mt-1 mb-3 text-gray-900">
+                            Mantenimiento de Bicicletas
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Ajuste y mantención profesional para bicicletas Gravel, Ruta, Fixie y MTB. Purgado de frenos hidráulicos, regulación de transmisiones Shimano, centrado de ruedas y lubricación general.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-200">
+                        <span class="text-xs font-bold text-denji-pink flex items-center gap-1">
+                            Gravel &bull; Fixie &bull; MTB &bull; Ruta
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Bento Item 3: Diagnóstico y Puesta en Marcha (Tarjeta Normal) -->
+                <div class="bg-gray-50 border border-gray-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-gray-900 text-white flex items-center justify-center mb-6 shadow-md">
+                            <i data-lucide="zap" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-gray-500">Rescate en Terreno</span>
+                        <h3 class="text-xl font-black uppercase mt-1 mb-3 text-gray-900">
+                            Puesta en Marcha y Diagnóstico
+                        </h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            ¿Tu moto no enciende o estuvo guardada por meses? Diagnosticamos problemas de batería, carburación, inyección y sistema eléctrico para hacerla andar directo en tu domicilio.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-200">
+                        <span class="text-xs font-bold text-gray-700 flex items-center gap-1">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-denji-pink"></i> Sin necesidad de grúa
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Bento Item 4: Taller Móvil a Domicilio (Tarjeta Ancha 2 Columnas) -->
+                <div class="md:col-span-2 bg-pink-50 border border-pink-200 p-8 sm:p-10 rounded-3xl shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
+                    <div class="max-w-md">
+                        <div class="inline-flex items-center gap-2 bg-denji-pink text-white px-3 py-1 rounded-full text-xs font-bold uppercase mb-4">
+                            <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Cobertura Santiago
+                        </div>
+                        <h3 class="text-2xl font-black uppercase text-gray-900 mb-2">
+                            Taller Móvil Equipado a tu Puerta
+                        </h3>
+                        <p class="text-gray-700 text-sm leading-relaxed">
+                            Llevamos la herramienta profesional y los insumos técnicos directamente a tu hogar u oficina en Providencia, Las Condes, Santiago Centro, Ñuñoa y alrededores.
+                        </p>
+                    </div>
+                    <div>
+                        <a href="https://wa.me/56900000000?text=Hola%20Taller%20DENJI,%20quiero%20consultar%20por%20atencion%20a%20domicilio" 
+                           target="_blank" 
+                           class="inline-flex items-center gap-2 bg-gray-900 hover:bg-black text-white font-extrabold px-6 py-4 rounded-2xl transition-all shadow-lg text-sm sm:text-base whitespace-nowrap">
+                            <i data-lucide="message-circle" class="w-5 h-5 text-denji-pink"></i>
+                            Consultar Cobertura
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
