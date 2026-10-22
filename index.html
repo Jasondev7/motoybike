@@ -142,10 +142,10 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
 
                         <div class="absolute bottom-6 left-6 right-6 z-10">
-                            <span class="font-heading font-bold text-xs text-denji-pink uppercase tracking-wider bg-black/70 px-3 py-1 rounded-full border border-white/10">Servicio Motos</span>
+                            <span class="font-heading font-bold text-xs text-denji-pink uppercase tracking-wider bg-black/70 px-3 py-1 rounded-full border border-white/10">Servicio Exclusivo Motos</span>
                             <h3 class="font-heading font-bold text-2xl sm:text-3xl text-white uppercase mt-2">Mecánica de Motos</h3>
                             <p class="text-gray-300 text-sm mt-2 leading-relaxed">
-                                Afinamiento, cambio de aceite, frenos, kit de arrastre y diagnóstico eléctrico directo en tu domicilio.
+                                Afinamiento general, cambio de aceite y filtros, ajuste de frenos, regulación de kit de arrastre y diagnóstico del sistema eléctrico directo en tu domicilio.
                             </p>
                         </div>
                     </div>
@@ -166,10 +166,10 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
 
                         <div class="absolute bottom-6 left-6 right-6 z-10">
-                            <span class="font-heading font-bold text-xs text-denji-pink uppercase tracking-wider bg-black/70 px-3 py-1 rounded-full border border-white/10">Servicio Bicis</span>
+                            <span class="font-heading font-bold text-xs text-denji-pink uppercase tracking-wider bg-black/70 px-3 py-1 rounded-full border border-white/10">Servicio Exclusivo Bicicletas</span>
                             <h3 class="font-heading font-bold text-2xl sm:text-3xl text-white uppercase mt-2">Mecánica de Bicicletas</h3>
                             <p class="text-gray-300 text-sm mt-2 leading-relaxed">
-                                Mantenimiento especializado para Gravel, Fixie y Ruta. Ajuste de transmisiones y frenos de disco.
+                                Mantenimiento especializado para bicicletas Gravel, Fixie y Ruta. Ajuste de transmisiones, regulación de cambios, purgado de frenos y centrado técnico en terreno.
                             </p>
                         </div>
                     </div>
@@ -189,7 +189,7 @@
 
     <!-- MODAL / MINI FORMULARIO COTIZADOR -->
     <div id="cotizador-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl w-full max-w-lg overflow-hidden shadow-2xl flex flex-col animate-in fade-in zoom-in duration-200">
+        <div class="bg-white rounded-3xl w-full max-w-lg overflow-hidden shadow-2xl flex flex-col">
             
             <!-- Header del Modal -->
             <div class="p-6 border-b border-gray-100 flex items-center justify-between bg-gray-50">
@@ -199,7 +199,7 @@
                     </div>
                     <div>
                         <h3 class="font-heading font-black text-xl text-gray-900 uppercase">Cotización Rápida</h3>
-                        <p class="text-xs text-gray-500 font-medium">Completa los datos para enviar tu solicitud por WhatsApp</p>
+                        <p class="text-xs text-gray-500 font-medium">Completa los datos para enviar tu solicitud a WhatsApp</p>
                     </div>
                 </div>
                 <button onclick="closeCotizadorModal()" class="w-9 h-9 rounded-full bg-gray-200 hover:bg-denji-pink hover:text-white flex items-center justify-center transition-all text-gray-700">
@@ -219,14 +219,14 @@
                 </div>
 
                 <div>
-                    <label class="block text-xs font-heading font-bold text-gray-700 uppercase mb-1.5">Marca y Modelo (Ej: Royal Enfield Hunter 350)</label>
-                    <input type="text" id="modelo-vehiculo" required placeholder="Ej: Honda CB300R / Oxford Stardust" 
+                    <label class="block text-xs font-heading font-bold text-gray-700 uppercase mb-1.5">Marca y Modelo</label>
+                    <input type="text" id="modelo-vehiculo" required placeholder="Ej: Royal Enfield Hunter 350 / Oxford Stardust 4" 
                            class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-denji-pink font-medium">
                 </div>
 
                 <div>
                     <label class="block text-xs font-heading font-bold text-gray-700 uppercase mb-1.5">¿En qué comuna o sector estás ubicado?</label>
-                    <input type="text" id="ubicacion-cliente" required placeholder="Ej: Providencia, Santiago Centro, Las Condes..." 
+                    <input type="text" id="ubicacion-cliente" required placeholder="Ej: Providencia, Las Condes, Ñuñoa, Santiago Centro..." 
                            class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-denji-pink font-medium">
                 </div>
 
@@ -264,7 +264,7 @@
                     <span>@denji.cl</span>
                 </a>
                 
-                <a href="https://wa.me/5695546985" target="_blank" 
+                <a href="https://api.whatsapp.com/send?phone=5695546985&text=Hola%20Taller%20DENJI,%20quisiera%20consultar%20por%20un%20servicio" target="_blank" 
                    class="inline-flex items-center gap-2 bg-white/5 hover:bg-denji-pink text-white px-5 py-2.5 rounded-xl border border-white/10 transition-all text-xs font-heading font-bold">
                     <i data-lucide="phone-call" class="w-4 h-4 text-denji-pink"></i>
                     <span>+56 9 5546 985</span>
@@ -300,9 +300,12 @@
             const ubicacion = document.getElementById('ubicacion-cliente').value;
             const necesidad = document.getElementById('necesidad-servicio').value;
 
-            const mensaje = `Hola Taller DENJI, necesito cotizar un servicio a domicilio:%0A%0A*Vehículo:* ${tipo} - ${modelo}%0A*Ubicación:* ${ubicacion}%0A*Servicio requerido:* ${necesidad}`;
+            const mensaje = encodeURIComponent(`Hola Taller DENJI, necesito cotizar un servicio a domicilio:\n\n*Vehículo:* ${tipo} - ${modelo}\n*Ubicación:* ${ubicacion}\n*Servicio requerido:* ${necesidad}`);
 
-            window.open(`https://wa.me/5695546985?text=${mensaje}`, '_blank');
+            // Enlace compatible con WhatsApp Web y Móvil
+            const urlWhatsApp = `https://api.whatsapp.com/send?phone=5695546985&text=${mensaje}`;
+
+            window.open(urlWhatsApp, '_blank');
             closeCotizadorModal();
         }
     </script>
