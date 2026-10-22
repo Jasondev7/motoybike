@@ -48,7 +48,7 @@
             background-color: #0D0D0D;
             z-index: 100;
             display: flex;
-            flex-col;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
@@ -58,7 +58,7 @@
             visibility: hidden;
         }
 
-        /* Animación del Logo en Preloader */
+        /* Animación del Logo Original en Preloader */
         @keyframes pulse-logo {
             0%, 100% { transform: scale(1); filter: drop-shadow(0 0 15px rgba(230, 0, 103, 0.4)); }
             50% { transform: scale(1.08); filter: drop-shadow(0 0 35px rgba(230, 0, 103, 0.8)); }
@@ -104,38 +104,22 @@
 </head>
 <body class="bg-white text-gray-900 min-h-screen flex flex-col justify-between selection:bg-denji-pink selection:text-white">
 
-    <!-- PRELOADER (PANTALLA DE CARGA CON LOGO EN GRANDE) -->
+    <!-- PRELOADER (PANTALLA DE CARGA CON TU LOGO ORIGINAL EN GRANDE) -->
     <div id="preloader">
         <div class="flex flex-col items-center justify-center p-6 text-center">
-            <!-- Logo Vectorizado Grande -->
-            <svg class="w-48 h-48 sm:w-64 sm:h-64 animate-loader-logo mb-6" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="120" cy="120" r="100" stroke="#E60067" stroke-width="10" stroke-dasharray="15 10"/>
-                <path d="M70 120L110 160L170 80" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-                <text x="120" y="205" fill="#E60067" font-family="Montserrat" font-weight="900" font-size="20" text-anchor="middle" letter-spacing="4">DENJI</text>
-            </svg>
-            <div class="font-heading font-black text-white text-xl tracking-widest uppercase">
-                TALLER <span class="text-denji-pink">DENJI</span>
-            </div>
-            <p class="text-xs text-gray-400 font-medium tracking-wider mt-2 uppercase">Cargando Taller en Terreno...</p>
+            <!-- Tu Logo Original -->
+            <img src="logo.png" alt="Taller DENJI Moto & Bike Repair" class="w-56 sm:w-72 h-auto object-contain animate-loader-logo mb-6">
+            <p class="text-xs text-gray-400 font-heading font-bold tracking-widest uppercase">Cargando Taller en Terreno...</p>
         </div>
     </div>
 
-    <!-- Header Fijo Blanco Pulido sin Bordes Extraños -->
-    <header class="sticky top-0 w-full z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm py-3">
+    <!-- Header Fijo Blanco con Tu Logo -->
+    <header class="sticky top-0 w-full z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm py-2">
         <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
             
-            <!-- Logo Vectorizado Blanco/Transparente Integrado -->
-            <a href="#taller" class="flex items-center gap-3 py-1 group">
-                <svg class="h-10 w-10 sm:h-12 sm:w-12 transition-transform group-hover:scale-105" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="120" cy="120" r="100" stroke="#E60067" stroke-width="12"/>
-                    <path d="M70 120L110 160L170 80" stroke="#0D0D0D" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <div class="flex flex-col">
-                    <span class="font-heading font-black text-lg sm:text-xl text-gray-900 leading-none uppercase tracking-tight">
-                        DENJI <span class="text-denji-pink">REPAIR</span>
-                    </span>
-                    <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest mt-0.5">Moto & Bike Service</span>
-                </div>
+            <!-- Tu Logo Original -->
+            <a href="#taller" class="flex items-center py-1">
+                <img src="logo.png" alt="Taller DENJI Moto & Bike Repair" class="h-16 sm:h-20 w-auto object-contain">
             </a>
 
             <div class="flex items-center gap-5 sm:gap-8">
@@ -401,7 +385,7 @@
             const preloader = document.getElementById('preloader');
             setTimeout(() => {
                 preloader.classList.add('hidden-loader');
-            }, 800); // Muestra el logo durante la carga y desaparece suavemente
+            }, 600); // Muestra tu logo al cargar y se retira suavemente
         });
 
         // Modal Motos
@@ -420,7 +404,7 @@
             document.getElementById('bici-modal').classList.add('hidden');
         }
 
-        // Envío WhatsApp Motos (Número +56965546985)
+        // Envío WhatsApp Motos (+56965546985)
         function enviarMotoWhatsApp(event) {
             event.preventDefault();
 
@@ -434,7 +418,7 @@
             closeMotoModal();
         }
 
-        // Envío WhatsApp Bicis (Número +56965546985)
+        // Envío WhatsApp Bicis (+56965546985)
         function enviarBiciWhatsApp(event) {
             event.preventDefault();
 
