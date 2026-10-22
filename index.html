@@ -36,12 +36,12 @@
 
     <!-- Google Fonts: Inter + Montserrat -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@800;900&display=swap');
         
         body { font-family: 'Inter', sans-serif; }
         .font-heading { font-family: 'Montserrat', sans-serif; }
 
-        /* Integración transparente del logo sin cuadrado blanco sobre fondo blanco */
+        /* Integración transparente del logo sin cuadrado blanco */
         .logo-transparent {
             mix-blend-mode: multiply;
         }
@@ -63,13 +63,29 @@
             visibility: hidden;
         }
 
-        /* Animación del Logo en Preloader */
+        /* Animaciones del Preloader */
         @keyframes pulse-logo {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.06); }
         }
         .animate-loader-logo {
             animation: pulse-logo 2s infinite ease-in-out;
+        }
+
+        @keyframes wave-flag {
+            0%, 100% { transform: rotate(-5deg) translateY(0); }
+            50% { transform: rotate(5deg) translateY(-5px); }
+        }
+        .animate-flag-left {
+            animation: wave-flag 1.5s infinite ease-in-out;
+        }
+        .animate-flag-right {
+            animation: wave-flag 1.5s infinite ease-in-out reverse;
+        }
+
+        /* Pattern de Banderas a Cuadros Negros y Blancos */
+        .chequered-pattern {
+            background-image: repeating-conic-gradient(#000 0 90deg, #fff 0 180deg) 0 0/16px 16px;
         }
 
         /* Animaciones de Texto al Cargar */
@@ -105,23 +121,44 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
             background-size: 200px 200px;
         }
+
+        /* Gradiente de Fuego Rojo - Naranjo - Amarillo */
+        .fire-gradient-bg {
+            background: linear-gradient(180deg, #FF1E00 0%, #FF7A00 50%, #FFC700 100%);
+        }
+        .fire-gradient-text {
+            background: linear-gradient(180deg, #FF1E00 0%, #FF7A00 60%, #FFC700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-900 min-h-screen flex flex-col justify-between selection:bg-denji-pink selection:text-white">
 
-    <!-- PRELOADER (PANTALLA DE CARGA DURANTE INICIO DEL SITIO) -->
+    <!-- PRELOADER CON LOGO Y BANDERAS DE CARRERA A LOS LADOS -->
     <div id="preloader">
-        <div class="flex flex-col items-center justify-center p-6 text-center">
-            <img src="logo.png" alt="Taller DENJI Moto & Bike Repair" class="w-48 sm:w-64 h-auto object-contain animate-loader-logo mb-6 bg-white p-2 rounded-xl">
-            <p class="text-xs text-gray-400 font-heading font-bold tracking-widest uppercase">Cargando Taller en Terreno...</p>
+        <div class="flex items-center justify-center gap-4 sm:gap-8 mb-6">
+            
+            <!-- Bandera de Carreras Izquierda -->
+            <div class="animate-flag-left w-10 h-14 sm:w-14 sm:h-20 rounded-md border-2 border-white shadow-lg overflow-hidden chequered-pattern transform -rotate-12"></div>
+            
+            <!-- Tu Logo Original -->
+            <img src="logo.png" alt="Taller DENJI Moto & Bike Repair" class="w-44 sm:w-60 h-auto object-contain animate-loader-logo bg-white p-2 rounded-2xl shadow-2xl">
+            
+            <!-- Bandera de Carreras Derecha -->
+            <div class="animate-flag-right w-10 h-14 sm:w-14 sm:h-20 rounded-md border-2 border-white shadow-lg overflow-hidden chequered-pattern transform rotate-12"></div>
+        
         </div>
+        <p class="text-xs sm:text-sm text-gray-300 font-heading font-black tracking-widest uppercase text-center px-4">
+            🏁 CARGANDO TALLER EN TERRENO... 🏁
+        </p>
     </div>
 
     <!-- Header Fijo Blanco con Logo Integrado -->
     <header class="sticky top-0 w-full z-40 bg-white border-b border-gray-100 shadow-sm py-2">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
             
-            <!-- Logo Integrado sin Cuadrado Blanco (multiply blend) -->
+            <!-- Logo Integrado sin Cuadrado Blanco -->
             <a href="#taller" class="flex items-center py-1">
                 <img src="logo.png" alt="Taller DENJI Moto & Bike Repair" class="h-14 sm:h-20 w-auto object-contain logo-transparent">
             </a>
@@ -347,32 +384,66 @@
         </div>
     </div>
 
-    <!-- FOOTER CON BOTONES ROSADOS Y LOGOS OFICIALES -->
-    <footer class="bg-denji-dark text-white border-t border-gray-800 py-12">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+    <!-- FOOTER ESTILO FUEGO / HOT ROD CUSTOM (INSPIRADO EN TU REFERENCIA) -->
+    <footer class="relative bg-denji-dark text-white pt-20 pb-8 overflow-hidden">
+        
+        <!-- LLAMAS SVG EN DEGRADADO ROJO - NARANJO - AMARILLO SOBRE EL FOOTER -->
+        <div class="absolute top-0 left-0 right-0 w-full overflow-hidden leading-none z-10 pointer-events-none">
+            <svg class="relative block w-full h-16 sm:h-28" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="fireGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#FF1E00" />
+                        <stop offset="50%" stop-color="#FF7A00" />
+                        <stop offset="100%" stop-color="#FFC700" />
+                    </linearGradient>
+                </defs>
+                <path d="M0,0 C150,90 350,-40 500,70 C650,160 900,-20 1050,80 C1120,120 1170,40 1200,0 L1200,0 L0,0 Z" fill="url(#fireGradient)" opacity="0.15"></path>
+                <path d="M0,0 C200,60 400,-10 600,80 C800,150 1000,10 1200,50 L1200,0 L0,0 Z" fill="url(#fireGradient)"></path>
+            </svg>
+        </div>
+
+        <div class="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 pt-8 text-center">
             
-            <h3 class="font-heading font-black text-xl sm:text-2xl tracking-wider uppercase mb-2">
-                TALLER DENJI MOTO & BIKE REPAIR
+            <!-- TU CALAVERA DE LOGO EN EL CENTRO SOBRE LAS LLAMAS -->
+            <div class="flex justify-center mb-6">
+                <div class="p-3 bg-white/10 backdrop-blur-md rounded-full border-2 border-orange-500 shadow-2xl transform hover:scale-110 transition-transform">
+                    <img src="logo.png" alt="Calavera Taller DENJI" class="w-20 h-20 sm:w-28 sm:h-28 object-contain">
+                </div>
+            </div>
+
+            <!-- TITULO PRINCIPAL DE IMPACTO CON DEGRADADO DE FUEGO -->
+            <h3 class="font-heading font-black text-3xl sm:text-5xl md:text-6xl tracking-tight uppercase mb-3 fire-gradient-text drop-shadow-lg">
+                MECÁNICA EN TERRENO
             </h3>
-            <p class="text-xs text-denji-pink font-heading font-bold tracking-widest uppercase mb-8">
-                Servicio Técnico Móvil en Santiago, Chile
+            
+            <p class="text-xs sm:text-sm text-gray-300 font-heading font-bold tracking-widest uppercase mb-10">
+                SANTIAGO, CHILE • SERVICIO A DOMICILIO
             </p>
 
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+            <!-- BOTONES DE CONTACTO -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 max-w-md mx-auto">
                 <a href="https://www.instagram.com/denji.cl/" target="_blank" 
-                   class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-denji-pink hover:bg-pink-700 text-white px-6 py-3 rounded-xl transition-all text-xs font-heading font-bold shadow-md shadow-denji-pink/20">
-                    <i data-lucide="instagram" class="w-4 h-4 text-white"></i>
+                   class="w-full inline-flex items-center justify-center gap-3 bg-black hover:bg-denji-pink text-white border-2 border-denji-pink px-6 py-3.5 rounded-2xl transition-all text-xs sm:text-sm font-heading font-black tracking-wider uppercase shadow-xl transform hover:-translate-y-1">
+                    <i data-lucide="instagram" class="w-5 h-5 text-denji-pink group-hover:text-white"></i>
                     <span>@denji.cl</span>
                 </a>
                 
                 <a href="https://api.whatsapp.com/send?phone=56965546985&text=Hola%20Taller%20DENJI,%20quisiera%20consultar%20por%20un%20servicio" target="_blank" 
-                   class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-denji-pink hover:bg-pink-700 text-white px-6 py-3 rounded-xl transition-all text-xs font-heading font-bold shadow-md shadow-denji-pink/20">
-                    <i data-lucide="message-circle" class="w-4 h-4 text-white"></i>
+                   class="w-full inline-flex items-center justify-center gap-3 bg-black hover:bg-denji-pink text-white border-2 border-denji-pink px-6 py-3.5 rounded-2xl transition-all text-xs sm:text-sm font-heading font-black tracking-wider uppercase shadow-xl transform hover:-translate-y-1">
+                    <i data-lucide="message-circle" class="w-5 h-5 text-denji-pink group-hover:text-white"></i>
                     <span>+56 9 6554 6985</span>
                 </a>
             </div>
 
-            <div class="text-xs text-gray-500 font-medium space-y-1 border-t border-gray-900 pt-6">
+            <!-- BRANDING GIGANTE TIPO MURAL EN EL FONDO DE FOOTER -->
+            <div class="overflow-hidden py-4 opacity-20">
+                <h2 class="font-heading font-black text-5xl sm:text-8xl md:text-9xl text-white tracking-tighter uppercase leading-none whitespace-nowrap">
+                    DENJI REPAIR
+                </h2>
+            </div>
+
+            <!-- LEGAL BAR LIMPIO -->
+            <div class="text-[11px] sm:text-xs text-gray-500 font-medium border-t border-gray-800/80 pt-6 mt-4">
                 <p>&copy; 2026 DENJI MOTO & BIKE REPAIR. Todos los derechos reservados.</p>
             </div>
 
@@ -388,7 +459,7 @@
             const preloader = document.getElementById('preloader');
             setTimeout(() => {
                 preloader.classList.add('hidden-loader');
-            }, 600);
+            }, 700);
         });
 
         // Modal Motos
