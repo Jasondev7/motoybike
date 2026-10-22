@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Meta Etiquetas SEO -->
-    <title>Taller DENJI Moto & Bike Repair | Mecánica Preventiva a Domicilio</title>
-    <meta name="description" content="Taller DENJI Moto & Bike Repair: Mecánica preventiva a domicilio para motos y bicicletas en Santiago. Mantenciones directo en tu terreno.">
+    <title>DENJI REPAIR | Mecánica Preventiva a Domicilio</title>
+    <meta name="description" content="Taller DENJI Moto & Bike Repair: Servicio técnico disruptivo a domicilio en Santiago, Chile.">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png?v=19">
@@ -21,10 +21,10 @@
                 extend: {
                     colors: {
                         denji: {
-                            red: '#E50914',     // Rojo Racing Principal
-                            dark: '#0D0D0D',    // Negro Garage
-                            card: '#161616',    // Fondo Cards Oscuras
-                            gray: '#1F1F1F'
+                            red: '#FF2A00',      // Rojo Neón Disruptivo
+                            orange: '#FF5500',   
+                            dark: '#080808',     // Negro Profundo
+                            card: '#121212'
                         }
                     }
                 }
@@ -35,35 +35,61 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Google Fonts: Inter + Anton + Caveat -->
+    <!-- Google Fonts: Anton + Permanent Marker + Montserrat + Rubik Glitch -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@700&family=Inter:wght@400;600;700;900&family=Montserrat:ital,wght@0,800;0,900;1,900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,900;1,900&family=Permanent+Marker&family=Rubik+Glitch&display=swap');
         
-        body { font-family: 'Inter', sans-serif; }
-        .font-heading { font-family: 'Anton', sans-serif; letter-spacing: 0.05em; }
-        .font-sans-heavy { font-family: 'Montserrat', sans-serif; }
-        .font-brush { font-family: 'Caveat', cursive; }
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: #080808; 
+            color: #ffffff; 
+            overflow-x: hidden;
+        }
 
-        /* Integración transparente del logo */
+        .font-brutal { font-family: 'Anton', sans-serif; letter-spacing: 0.05em; }
+        .font-marker { font-family: 'Permanent Marker', cursive; }
+        .font-glitch { font-family: 'Rubik Glitch', cursive; }
+
+        /* OVERLAY GLOBAL DE TEXTURA GRAIN / FILM NOISE (REFERENCIA KROTZ) */
+        .grain-overlay {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 99;
+            opacity: 0.85;
+        }
+
+        /* EFECTO BLOQUE DE COLOR TIPO PINTURA / BROCHAZO (REFERENCIA STREET PROWL) */
+        .block-highlight {
+            background-color: #FF2A00;
+            color: #080808;
+            padding: 0.1em 0.3em;
+            display: inline-block;
+            box-shadow: 6px 6px 0px #ffffff;
+        }
+
+        .block-highlight-white {
+            background-color: #ffffff;
+            color: #080808;
+            padding: 0.1em 0.3em;
+            display: inline-block;
+            box-shadow: 6px 6px 0px #FF2A00;
+        }
+
+        /* INTEGRACIÓN LIMPIA DEL LOGO */
         .logo-transparent {
             mix-blend-mode: multiply;
         }
 
-        /* Patrón a Cuadros Racing Blanco y Negro */
-        .chequered-border-bw {
-            background-image: repeating-conic-gradient(#000 0 90deg, #fff 0 180deg) 0 0/14px 14px;
-        }
-        
-        /* Patrón a Cuadros Racing Rojo y Blanco */
-        .chequered-border-red {
-            background-image: repeating-conic-gradient(#E50914 0 90deg, #fff 0 180deg) 0 0/14px 14px;
-        }
-
-        /* Preloader */
+        /* PRELOADER */
         #preloader {
             position: fixed;
             inset: 0;
-            background-color: #0D0D0D;
+            background-color: #080808;
             z-index: 100;
             display: flex;
             flex-direction: column;
@@ -76,335 +102,276 @@
             visibility: hidden;
         }
 
-        @keyframes pulse-logo {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        @keyframes pulse-loader {
+            0%, 100% { transform: scale(1); filter: contrast(100%); }
+            50% { transform: scale(1.08); filter: contrast(150%); }
         }
-        .animate-loader-logo {
-            animation: pulse-logo 2s infinite ease-in-out;
-        }
-
-        @keyframes wave-flag {
-            0%, 100% { transform: rotate(-6deg); }
-            50% { transform: rotate(6deg); }
-        }
-        .animate-flag-left { animation: wave-flag 1.2s infinite ease-in-out; }
-        .animate-flag-right { animation: wave-flag 1.2s infinite ease-in-out reverse; }
-
-        /* Background Zoom */
-        @keyframes float-zoom {
-            0% { transform: scale(1.0); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1.01); }
-        }
-        .animate-hero-bg {
-            animation: float-zoom 20s infinite alternate ease-in-out;
-        }
+        .animate-loader { animation: pulse-loader 1.5s infinite ease-in-out; }
     </style>
 </head>
-<body class="bg-white text-gray-900 min-h-screen flex flex-col justify-between selection:bg-denji-red selection:text-white">
+<body class="selection:bg-denji-red selection:text-black relative">
 
-    <!-- PRELOADER CON ESTÉTICTA RACING -->
+    <!-- TEXTURA GRAIN OVERLAY GLOBAL EN TODA LA PÁGINA -->
+    <div class="grain-overlay"></div>
+
+    <!-- PRELOADER DISRUPTIVO -->
     <div id="preloader">
-        <div class="flex items-center justify-center gap-4 sm:gap-6 mb-6">
-            <div class="animate-flag-left w-10 h-14 sm:w-12 sm:h-16 rounded border-2 border-white chequered-border-bw shadow-2xl"></div>
-            <img src="logo.png" alt="Taller DENJI" class="w-44 sm:w-56 h-auto object-contain animate-loader-logo bg-white p-2 rounded-2xl shadow-2xl">
-            <div class="animate-flag-right w-10 h-14 sm:w-12 sm:h-16 rounded border-2 border-white chequered-border-bw shadow-2xl"></div>
+        <div class="relative flex flex-col items-center justify-center p-6 text-center">
+            <img src="logo.png" alt="DENJI REPAIR" class="w-48 sm:w-64 h-auto object-contain bg-white p-3 rounded-2xl animate-loader mb-6 shadow-2xl border-4 border-denji-red">
+            <h2 class="font-brutal text-3xl sm:text-5xl uppercase tracking-widest text-white">
+                DENJI <span class="text-denji-red">REPAIR</span>
+            </h2>
+            <p class="font-marker text-denji-red text-lg sm:text-xl mt-2">Mecánica a Domicilio en Terreno</p>
         </div>
-        <p class="text-xs sm:text-sm text-white font-sans-heavy font-black tracking-widest uppercase text-center px-4">
-            🏁 CARGANDO TALLER EN TERRENO... 🏁
-        </p>
     </div>
 
-    <!-- Header Fijo Blanco / Racing Clean -->
-    <header class="sticky top-0 w-full z-40 bg-white border-b-4 border-denji-red shadow-md py-2">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+    <!-- HEADER UNDERGROUND -->
+    <header class="sticky top-0 w-full z-40 bg-black border-b-4 border-denji-red py-3 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
             
-            <!-- Logo Integrado -->
-            <a href="#taller" class="flex items-center py-1">
-                <img src="logo.png" alt="Taller DENJI Moto & Bike Repair" class="h-14 sm:h-20 w-auto object-contain logo-transparent">
+            <a href="#taller" class="flex items-center gap-3">
+                <img src="logo.png" alt="DENJI" class="h-14 sm:h-16 w-auto object-contain bg-white p-1 rounded-xl">
             </a>
 
-            <div class="flex items-center gap-4 sm:gap-8">
+            <div class="flex items-center gap-4 sm:gap-6">
                 <nav class="hidden md:flex items-center gap-6">
-                    <a href="#taller" class="font-sans-heavy font-black text-xs tracking-wider text-gray-900 hover:text-denji-red transition-colors uppercase flex items-center gap-1.5">
-                        <i data-lucide="wrench" class="w-4 h-4 text-denji-red"></i>
-                        TALLER
-                    </a>
-                    <a href="#servicios" class="font-sans-heavy font-black text-xs tracking-wider text-gray-900 hover:text-denji-red transition-colors uppercase flex items-center gap-1.5">
-                        <i data-lucide="layout-grid" class="w-4 h-4 text-denji-red"></i>
-                        SERVICIOS
-                    </a>
+                    <a href="#taller" class="font-brutal text-xl text-white hover:text-denji-red transition-colors">TALLER</a>
+                    <a href="#servicios" class="font-brutal text-xl text-white hover:text-denji-red transition-colors">SERVICIOS</a>
                 </nav>
 
                 <button onclick="openMotoModal()" 
-                   class="inline-flex items-center gap-2 bg-denji-red hover:bg-black text-white font-sans-heavy font-black px-4 sm:px-6 py-2.5 rounded-xl transition-all transform hover:scale-105 shadow-md text-xs sm:text-sm uppercase tracking-wider">
-                    <i data-lucide="message-circle" class="w-4 h-4"></i>
-                    <span>Cotizar WhatsApp</span>
+                   class="bg-denji-red hover:bg-white text-black font-brutal text-lg sm:text-2xl px-5 py-2 transition-all transform hover:skew-x-3 border-2 border-white uppercase shadow-[4px_4px_0px_#fff]">
+                    COTIZAR
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- HERO SECTION ESTILO RACING POSTER -->
-    <section id="taller" class="relative bg-denji-dark min-h-[calc(100vh-80px)] flex items-center justify-center overflow-hidden py-16 sm:py-20">
-        <div class="absolute inset-0 z-0 overflow-hidden">
-            <img src="hero.jpg" alt="Taller DENJI Moto & Bike Repair" class="w-full h-full object-cover animate-hero-bg opacity-60">
-            <div class="absolute inset-0 bg-gradient-to-t from-denji-dark via-black/50 to-black/80 z-10"></div>
+    <!-- HERO SECTION TIPO PORTADA UNDERGROUND CON CALAVERA -->
+    <section id="taller" class="relative min-h-[calc(100vh-80px)] flex items-center justify-center py-20 px-4 overflow-hidden border-b-8 border-white bg-denji-dark">
+        
+        <!-- IMAGEN DE FONDO CON PORTADA DE CALAVERA DRAMÁTICA Y OSCURA -->
+        <div class="absolute inset-0 z-0 overflow-hidden opacity-45">
+            <img src="hero.jpg" alt="Denji Skull Cover" class="w-full h-full object-cover object-center scale-105 filter contrast-150 grayscale">
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
         </div>
 
-        <div class="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-6">
+        <div class="relative z-10 max-w-5xl mx-auto text-center">
             
-            <!-- Etiqueta con fuente Manuscríta -->
-            <div class="inline-block bg-denji-red text-white font-brush text-2xl sm:text-3xl px-6 py-1 rounded-full mb-4 transform -rotate-2 shadow-lg">
-                ¡Olvídate de las grúas y los traslados!
+            <div class="mb-4 inline-block">
+                <span class="font-marker text-xl sm:text-3xl text-yellow-400 bg-black px-4 py-2 border-2 border-yellow-400 transform -rotate-2 inline-block shadow-[4px_4px_0px_#FF2A00]">
+                    ⚡ SANTIAGO, CHILE • SERVICIO A DOMICILIO
+                </span>
             </div>
 
-            <!-- Título Principal Tipo Grafismo de Repuestos -->
-            <h1 class="font-heading text-5xl sm:text-7xl md:text-8xl tracking-wider leading-none mb-4 text-white uppercase drop-shadow-2xl">
-                MECÁNICA <span class="text-denji-red">PREVENTIVA</span><br>
-                <span class="font-brush text-yellow-400 text-4xl sm:text-6xl md:text-7xl normal-case tracking-normal block -mt-2">a domicilio</span>
+            <!-- TITULO TIPO PÓSTER CALLEJERO BRUTALISTA -->
+            <h1 class="font-brutal text-5xl sm:text-8xl md:text-9xl uppercase tracking-tighter leading-none mb-6">
+                <span class="block-highlight transform -rotate-1 mb-2">MECÁNICA</span><br>
+                <span class="block-highlight-white transform rotate-1 mb-2">PREVENTIVA</span><br>
+                <span class="text-denji-red drop-shadow-[5px_5px_0px_#fff]">A DOMICILIO</span>
             </h1>
 
-            <p class="font-sans-heavy text-gray-200 text-base sm:text-2xl max-w-2xl mx-auto mb-10 leading-relaxed uppercase tracking-wide font-black">
-                Mantenciones para motos y bicicletas
+            <p class="font-marker text-gray-300 text-xl sm:text-3xl max-w-2xl mx-auto mb-10 leading-relaxed">
+                Mantenimientos técnicos directo en tu terreno para motos y bicicletas.
             </p>
 
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md sm:max-w-none mx-auto">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 max-w-md sm:max-w-none mx-auto">
                 <button onclick="openMotoModal()" 
-                   class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-denji-red hover:bg-white hover:text-black text-white font-sans-heavy font-black text-sm sm:text-base px-8 py-4 rounded-xl transition-all shadow-2xl border-2 border-denji-red uppercase tracking-wider transform hover:-translate-y-1">
-                    <i data-lucide="wrench" class="w-5 h-5"></i>
-                    Cotizar Servicio Motos
+                   class="w-full sm:w-auto bg-denji-red hover:bg-white text-black font-brutal text-2xl sm:text-3xl px-8 py-4 border-4 border-black uppercase shadow-[8px_8px_0px_#fff] transform hover:-translate-y-1 transition-all">
+                    <i data-lucide="wrench" class="inline w-6 h-6 mr-2"></i> COTIZAR MOTOS
                 </button>
                 <button onclick="openBiciModal()" 
-                   class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-black hover:bg-white hover:text-black text-white font-sans-heavy font-black text-sm sm:text-base px-8 py-4 rounded-xl transition-all shadow-2xl border-2 border-white/30 uppercase tracking-wider transform hover:-translate-y-1">
-                    <i data-lucide="wrench" class="w-5 h-5 text-denji-red"></i>
-                    Cotizar Servicio Bicis
+                   class="w-full sm:w-auto bg-white hover:bg-denji-red text-black font-brutal text-2xl sm:text-3xl px-8 py-4 border-4 border-black uppercase shadow-[8px_8px_0px_#FF2A00] transform hover:-translate-y-1 transition-all">
+                    <i data-lucide="wrench" class="inline w-6 h-6 mr-2"></i> COTIZAR BICIS
                 </button>
             </div>
+
         </div>
     </section>
 
-    <!-- CINTA DECORATIVA A CUADROS CORTANDO SECCIONES -->
-    <div class="h-4 w-full chequered-border-red"></div>
-
-    <!-- SECCIÓN DE SERVICIOS - ESTÉTICTICA TIPO CARTEL DE COMPONENTES -->
-    <section id="servicios" class="py-16 sm:py-24 bg-gray-100 text-gray-900">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <!-- SECCIÓN DE SERVICIOS -->
+    <section id="servicios" class="py-24 bg-black border-b-8 border-denji-red px-4">
+        <div class="max-w-6xl mx-auto">
             
-            <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-                <p class="font-brush text-denji-red text-2xl sm:text-3xl mb-1">El cuidado que tu vehículo necesita</p>
-                <h2 class="font-heading text-4xl sm:text-6xl tracking-wider text-gray-900 uppercase">
-                    NOS DEDICAMOS <span class="bg-denji-red text-white px-3 py-1 inline-block transform -rotate-1">PRINCIPALMENTE</span>
+            <div class="text-center mb-16">
+                <span class="font-marker text-denji-red text-2xl sm:text-3xl">TRABAJO PROFESIONAL SIN TRASLADOS</span>
+                <h2 class="font-brutal text-5xl sm:text-7xl uppercase text-white tracking-wider mt-2">
+                    NOS DEDICAMOS <span class="bg-white text-black px-4 py-1 inline-block transform rotate-1">PRINCIPALMENTE</span>
                 </h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
                 
-                <!-- CARD 1: MOTO SERVICES -->
-                <div class="relative rounded-3xl overflow-hidden border-4 border-black bg-denji-dark shadow-2xl flex flex-col justify-between group">
-                    <div class="relative h-72 sm:h-80 w-full overflow-hidden">
-                        <img src="rueda_moto.jpg" alt="Mecánica de Motos Denji Repair" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-
-                        <div class="absolute bottom-6 left-6 right-6 z-10">
-                            <span class="font-sans-heavy font-black text-xs text-black uppercase tracking-wider bg-yellow-400 px-3 py-1 rounded-md">
-                                SERVICIO MOTOS
-                            </span>
-                            <h3 class="font-heading text-3xl sm:text-4xl text-white uppercase mt-2">MECÁNICA DE MOTOS</h3>
-                            <p class="text-gray-300 text-xs sm:text-sm mt-2 leading-relaxed font-medium">
-                                Afinamiento general, cambio de aceite y filtros, ajuste de frenos, regulación de kit de arrastre y diagnóstico.
-                            </p>
+                <!-- CARD 1: MOTOS -->
+                <div class="bg-denji-card border-4 border-white p-6 rounded-3xl shadow-[10px_10px_0px_#FF2A00] flex flex-col justify-between group">
+                    <div>
+                        <div class="relative h-64 w-full overflow-hidden rounded-2xl mb-6 border-2 border-white">
+                            <img src="rueda_moto.jpg" alt="Motos" class="w-full h-full object-cover filter contrast-125 group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute top-4 left-4 bg-denji-red text-black font-brutal text-lg px-3 py-1 border border-black">
+                                MOTOS
+                            </div>
                         </div>
+
+                        <h3 class="font-brutal text-4xl text-white uppercase mb-3">MECÁNICA DE MOTOS</h3>
+                        <p class="font-medium text-gray-300 text-base leading-relaxed mb-6">
+                            Afinamiento general, cambio de aceite y filtros, ajuste de frenos, regulación de kit de arrastre y diagnóstico.
+                        </p>
                     </div>
 
-                    <div class="p-6 bg-black border-t-2 border-gray-800">
-                        <button onclick="openMotoModal()" 
-                                class="w-full flex items-center justify-center gap-2 bg-denji-red hover:bg-white hover:text-black text-white font-sans-heavy font-black text-xs sm:text-sm px-5 py-4 rounded-xl transition-all shadow-md uppercase tracking-wider">
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            Cotizar Servicio de Moto
-                        </button>
-                    </div>
+                    <button onclick="openMotoModal()" 
+                            class="w-full bg-denji-red hover:bg-white text-black font-brutal text-2xl py-4 border-2 border-black uppercase tracking-wider transition-all shadow-[4px_4px_0px_#fff]">
+                        COTIZAR SERVICIO MOTO
+                    </button>
                 </div>
 
-                <!-- CARD 2: BIKE SERVICES -->
-                <div class="relative rounded-3xl overflow-hidden border-4 border-black bg-denji-dark shadow-2xl flex flex-col justify-between group">
-                    <div class="relative h-72 sm:h-80 w-full overflow-hidden">
-                        <img src="rueda_bici.jpg" alt="Mecánica de Bicicletas Denji Repair" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-
-                        <div class="absolute bottom-6 left-6 right-6 z-10">
-                            <span class="font-sans-heavy font-black text-xs text-black uppercase tracking-wider bg-yellow-400 px-3 py-1 rounded-md">
-                                SERVICIO BICICLETAS
-                            </span>
-                            <h3 class="font-heading text-3xl sm:text-4xl text-white uppercase mt-2">MECÁNICA DE BICICLETAS</h3>
-                            <p class="text-gray-300 text-xs sm:text-sm mt-2 leading-relaxed font-medium">
-                                Mantenimiento especializado para bicicletas Gravel, Fixie y Ruta. Ajuste de transmisiones y regulación de cambios.
-                            </p>
+                <!-- CARD 2: BICIS -->
+                <div class="bg-denji-card border-4 border-white p-6 rounded-3xl shadow-[10px_10px_0px_#FF2A00] flex flex-col justify-between group">
+                    <div>
+                        <div class="relative h-64 w-full overflow-hidden rounded-2xl mb-6 border-2 border-white">
+                            <img src="rueda_bici.jpg" alt="Bicicletas" class="w-full h-full object-cover filter contrast-125 group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute top-4 left-4 bg-white text-black font-brutal text-lg px-3 py-1 border border-black">
+                                BICICLETAS
+                            </div>
                         </div>
+
+                        <h3 class="font-brutal text-4xl text-white uppercase mb-3">MECÁNICA DE BICICLETAS</h3>
+                        <p class="font-medium text-gray-300 text-base leading-relaxed mb-6">
+                            Mantenimiento especializado para bicicletas Gravel, Fixie y Ruta. Ajuste de transmisiones y regulación de cambios.
+                        </p>
                     </div>
 
-                    <div class="p-6 bg-black border-t-2 border-gray-800">
-                        <button onclick="openBiciModal()" 
-                                class="w-full flex items-center justify-center gap-2 bg-denji-red hover:bg-white hover:text-black text-white font-sans-heavy font-black text-xs sm:text-sm px-5 py-4 rounded-xl transition-all shadow-md uppercase tracking-wider">
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            Cotizar Servicio de Bicicleta
-                        </button>
-                    </div>
+                    <button onclick="openBiciModal()" 
+                            class="w-full bg-white hover:bg-denji-red text-black font-brutal text-2xl py-4 border-2 border-black uppercase tracking-wider transition-all shadow-[4px_4px_0px_#FF2A00]">
+                        COTIZAR SERVICIO BICI
+                    </button>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- FORMULARIO 1: MOTOCICLETAS -->
-    <div id="moto-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl border-4 border-black w-full max-w-lg overflow-hidden shadow-2xl flex flex-col">
+    <!-- FORMULARIO 1: MOTOS -->
+    <div id="moto-modal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-black border-4 border-denji-red rounded-3xl w-full max-w-lg overflow-hidden shadow-[12px_12px_0px_#fff] flex flex-col">
             
-            <div class="p-5 sm:p-6 border-b-2 border-black flex items-center justify-between bg-denji-red text-white">
+            <div class="p-6 border-b-4 border-denji-red flex items-center justify-between bg-denji-red text-black">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-black flex items-center justify-center text-white">
-                        <i data-lucide="wrench" class="w-5 h-5"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-heading text-2xl uppercase leading-none">Cotización de Moto</h3>
-                        <p class="text-xs font-sans-heavy font-bold text-gray-100 uppercase">Servicio a domicilio en Santiago</p>
-                    </div>
+                    <i data-lucide="wrench" class="w-8 h-8"></i>
+                    <h3 class="font-brutal text-3xl uppercase leading-none">COTIZACIÓN MOTO</h3>
                 </div>
-                <button onclick="closeMotoModal()" class="w-9 h-9 rounded-full bg-black text-white hover:bg-white hover:text-black flex items-center justify-center transition-all">
-                    <i data-lucide="x" class="w-5 h-5"></i>
+                <button onclick="closeMotoModal()" class="w-10 h-10 rounded-full bg-black text-white hover:bg-white hover:text-black flex items-center justify-center font-bold text-xl border-2 border-black">
+                    ✕
                 </button>
             </div>
 
-            <form onsubmit="enviarMotoWhatsApp(event)" class="p-5 sm:p-6 space-y-4">
+            <form onsubmit="enviarMotoWhatsApp(event)" class="p-6 space-y-4">
                 <div>
-                    <label class="block text-xs font-sans-heavy font-black text-gray-900 uppercase mb-1.5">Marca y Modelo de la Moto</label>
+                    <label class="block text-xs font-brutal text-white uppercase mb-1">Marca y Modelo de la Moto</label>
                     <input type="text" id="moto-modelo" required placeholder="Ej: Royal Enfield Hunter 350, Honda CB300R..." 
-                           class="w-full bg-gray-100 border-2 border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-denji-red font-medium">
+                           class="w-full bg-denji-card border-2 border-white rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-denji-red font-medium">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-sans-heavy font-black text-gray-900 uppercase mb-1.5">¿En qué comuna o sector estás ubicado?</label>
+                    <label class="block text-xs font-brutal text-white uppercase mb-1">¿En qué comuna estás ubicado?</label>
                     <input type="text" id="moto-ubicacion" required placeholder="Ej: Providencia, Las Condes, Ñuñoa..." 
-                           class="w-full bg-gray-100 border-2 border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-denji-red font-medium">
+                           class="w-full bg-denji-card border-2 border-white rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-denji-red font-medium">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-sans-heavy font-black text-gray-900 uppercase mb-1.5">¿Qué mantención o trabajo necesita la moto?</label>
+                    <label class="block text-xs font-brutal text-white uppercase mb-1">¿Qué mantención necesitas?</label>
                     <textarea id="moto-trabajo" rows="3" required placeholder="Ej: Cambio de aceite, revisión de kit de arrastre..." 
-                              class="w-full bg-gray-100 border-2 border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-denji-red font-medium resize-none"></textarea>
+                              class="w-full bg-denji-card border-2 border-white rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-denji-red font-medium resize-none"></textarea>
                 </div>
 
                 <button type="submit" 
-                        class="w-full mt-2 flex items-center justify-center gap-2 bg-denji-red hover:bg-black text-white font-sans-heavy font-black text-sm px-6 py-4 rounded-xl transition-all shadow-lg uppercase tracking-wider">
-                    <i data-lucide="message-circle" class="w-5 h-5"></i>
-                    Enviar Solicitud Moto por WhatsApp
+                        class="w-full bg-denji-red hover:bg-white text-black font-brutal text-2xl py-4 border-2 border-white uppercase tracking-wider transition-all shadow-[4px_4px_0px_#fff]">
+                    ENVIAR A WHATSAPP
                 </button>
             </form>
 
         </div>
     </div>
 
-    <!-- FORMULARIO 2: BICICLETAS -->
-    <div id="bici-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl border-4 border-black w-full max-w-lg overflow-hidden shadow-2xl flex flex-col">
+    <!-- FORMULARIO 2: BICIS -->
+    <div id="bici-modal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-black border-4 border-white rounded-3xl w-full max-w-lg overflow-hidden shadow-[12px_12px_0px_#FF2A00] flex flex-col">
             
-            <div class="p-5 sm:p-6 border-b-2 border-black flex items-center justify-between bg-denji-red text-white">
+            <div class="p-6 border-b-4 border-white flex items-center justify-between bg-white text-black">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-black flex items-center justify-center text-white">
-                        <i data-lucide="wrench" class="w-5 h-5"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-heading text-2xl uppercase leading-none">Cotización de Bicicleta</h3>
-                        <p class="text-xs font-sans-heavy font-bold text-gray-100 uppercase">Servicio a domicilio en Santiago</p>
-                    </div>
+                    <i data-lucide="wrench" class="w-8 h-8"></i>
+                    <h3 class="font-brutal text-3xl uppercase leading-none">COTIZACIÓN BICICLETA</h3>
                 </div>
-                <button onclick="closeBiciModal()" class="w-9 h-9 rounded-full bg-black text-white hover:bg-white hover:text-black flex items-center justify-center transition-all">
-                    <i data-lucide="x" class="w-5 h-5"></i>
+                <button onclick="closeBiciModal()" class="w-10 h-10 rounded-full bg-black text-white hover:bg-denji-red flex items-center justify-center font-bold text-xl border-2 border-black">
+                    ✕
                 </button>
             </div>
 
-            <form onsubmit="enviarBiciWhatsApp(event)" class="p-5 sm:p-6 space-y-4">
+            <form onsubmit="enviarBiciWhatsApp(event)" class="p-6 space-y-4">
                 <div>
-                    <label class="block text-xs font-sans-heavy font-black text-gray-900 uppercase mb-1.5">Modelo y Tipo de Bicicleta</label>
+                    <label class="block text-xs font-brutal text-white uppercase mb-1">Modelo y Tipo de Bicicleta</label>
                     <input type="text" id="bici-modelo" required placeholder="Ej: Oxford Stardust 4, Gravel, Fixie..." 
-                           class="w-full bg-gray-100 border-2 border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-denji-red font-medium">
+                           class="w-full bg-denji-card border-2 border-white rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-denji-red font-medium">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-sans-heavy font-black text-gray-900 uppercase mb-1.5">¿En qué comuna o sector estás ubicado?</label>
+                    <label class="block text-xs font-brutal text-white uppercase mb-1">¿En qué comuna estás ubicado?</label>
                     <input type="text" id="bici-ubicacion" required placeholder="Ej: Providencia, Las Condes, Ñuñoa..." 
-                           class="w-full bg-gray-100 border-2 border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-denji-red font-medium">
+                           class="w-full bg-denji-card border-2 border-white rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-denji-red font-medium">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-sans-heavy font-black text-gray-900 uppercase mb-1.5">¿Qué ajuste o mantenimiento necesita la bici?</label>
+                    <label class="block text-xs font-brutal text-white uppercase mb-1">¿Qué ajuste necesitas?</label>
                     <textarea id="bici-trabajo" rows="3" required placeholder="Ej: Regulación de cambios, transmisión..." 
-                              class="w-full bg-gray-100 border-2 border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-denji-red font-medium resize-none"></textarea>
+                              class="w-full bg-denji-card border-2 border-white rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-denji-red font-medium resize-none"></textarea>
                 </div>
 
                 <button type="submit" 
-                        class="w-full mt-2 flex items-center justify-center gap-2 bg-denji-red hover:bg-black text-white font-sans-heavy font-black text-sm px-6 py-4 rounded-xl transition-all shadow-lg uppercase tracking-wider">
-                    <i data-lucide="message-circle" class="w-5 h-5"></i>
-                    Enviar Solicitud Bici por WhatsApp
+                        class="w-full bg-white hover:bg-denji-red text-black font-brutal text-2xl py-4 border-2 border-black uppercase tracking-wider transition-all shadow-[4px_4px_0px_#FF2A00]">
+                    ENVIAR A WHATSAPP
                 </button>
             </form>
 
         </div>
     </div>
 
-    <!-- FOOTER REDISEÑADO - ESTILO RED RACING GARAGE -->
-    <footer class="bg-denji-dark text-white border-t-8 border-denji-red pt-12 pb-8">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <!-- FOOTER BRUTALISTA UNDERGROUND -->
+    <footer class="bg-black text-white py-16 px-4 border-t-8 border-denji-red">
+        <div class="max-w-6xl mx-auto text-center">
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left mb-10 pb-8 border-b border-gray-800">
-                
-                <!-- Columna 1: Logo Integrado -->
-                <div class="flex flex-col items-center md:items-start">
-                    <img src="logo.png" alt="Denji Repair" class="h-20 w-auto object-contain bg-white p-2 rounded-2xl mb-3">
-                    <p class="font-brush text-yellow-400 text-xl">Mecánica a domicilio en Santiago</p>
-                </div>
-
-                <!-- Columna 2: Título Centrado -->
-                <div class="text-center">
-                    <h3 class="font-heading text-3xl sm:text-4xl text-white uppercase tracking-wider">
-                        DENJI <span class="text-denji-red">REPAIR</span>
-                    </h3>
-                    <p class="font-sans-heavy text-xs text-gray-400 uppercase tracking-widest mt-1">
-                        Servicio Técnico Móvil
-                    </p>
-                </div>
-
-                <!-- Columna 3: Botones Redes Oficiales -->
-                <div class="flex flex-col sm:flex-row md:flex-col gap-3 justify-center">
-                    <a href="https://www.instagram.com/denji.cl/" target="_blank" 
-                       class="inline-flex items-center justify-center gap-2.5 bg-denji-red hover:bg-white hover:text-black text-white px-5 py-3 rounded-xl transition-all text-xs font-sans-heavy font-black uppercase tracking-wider">
-                        <i data-lucide="instagram" class="w-4 h-4"></i>
-                        <span>@denji.cl</span>
-                    </a>
-                    
-                    <a href="https://api.whatsapp.com/send?phone=56965546985&text=Hola%20Taller%20DENJI,%20quisiera%20consultar%20por%20un%20servicio" target="_blank" 
-                       class="inline-flex items-center justify-center gap-2.5 bg-black hover:bg-white hover:text-black text-white border border-gray-700 px-5 py-3 rounded-xl transition-all text-xs font-sans-heavy font-black uppercase tracking-wider">
-                        <i data-lucide="message-circle" class="w-4 h-4 text-denji-red"></i>
-                        <span>+56 9 6554 6985</span>
-                    </a>
-                </div>
-
+            <div class="flex justify-center mb-6">
+                <img src="logo.png" alt="DENJI REPAIR" class="h-28 w-auto object-contain bg-white p-3 rounded-2xl border-4 border-denji-red shadow-[8px_8px_0px_#fff]">
             </div>
 
-            <!-- Legal Bar -->
-            <div class="text-center text-xs text-gray-500 font-sans-heavy font-bold uppercase tracking-wider">
-                <p>&copy; 2026 DENJI MOTO & BIKE REPAIR. Todos los derechos reservados.</p>
+            <h3 class="font-brutal text-5xl sm:text-7xl uppercase text-white tracking-wider mb-2">
+                DENJI <span class="text-denji-red">REPAIR</span>
+            </h3>
+            
+            <p class="font-marker text-xl text-yellow-400 mb-10">Mecánica Profesional Directo en Tu Terreno</p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12 max-w-md mx-auto">
+                <a href="https://www.instagram.com/denji.cl/" target="_blank" 
+                   class="w-full bg-denji-red hover:bg-white text-black font-brutal text-2xl px-6 py-4 border-2 border-white uppercase transition-all shadow-[4px_4px_0px_#fff]">
+                    INSTAGRAM @DENJI.CL
+                </a>
+                
+                <a href="https://api.whatsapp.com/send?phone=56965546985&text=Hola%20Taller%20DENJI,%20quisiera%20consultar%20por%20un%20servicio" target="_blank" 
+                   class="w-full bg-white hover:bg-denji-red text-black font-brutal text-2xl px-6 py-4 border-2 border-black uppercase transition-all shadow-[4px_4px_0px_#FF2A00]">
+                    WHATSAPP +56 9 6554 6985
+                </a>
+            </div>
+
+            <div class="text-xs text-gray-500 font-bold uppercase tracking-widest border-t border-gray-800 pt-8">
+                &copy; 2026 DENJI MOTO & BIKE REPAIR. Todos los derechos reservados.
             </div>
 
         </div>
     </footer>
 
-    <!-- Scripts de Interacción -->
+    <!-- SCRIPTS -->
     <script>
         lucide.createIcons();
 
-        // Control del Preloader
+        // CONTROL PRELOADER
         window.addEventListener('load', () => {
             const preloader = document.getElementById('preloader');
             setTimeout(() => {
@@ -412,14 +379,14 @@
             }, 600);
         });
 
-        // Modales
+        // MODALES
         function openMotoModal() { document.getElementById('moto-modal').classList.remove('hidden'); }
         function closeMotoModal() { document.getElementById('moto-modal').classList.add('hidden'); }
 
         function openBiciModal() { document.getElementById('bici-modal').classList.remove('hidden'); }
         function closeBiciModal() { document.getElementById('bici-modal').classList.add('hidden'); }
 
-        // WhatsApp Motos (+56965546985)
+        // WHATSAPP MOTOS (+56965546985)
         function enviarMotoWhatsApp(event) {
             event.preventDefault();
             const modelo = document.getElementById('moto-modelo').value;
@@ -430,7 +397,7 @@
             closeMotoModal();
         }
 
-        // WhatsApp Bicis (+56965546985)
+        // WHATSAPP BICIS (+56965546985)
         function enviarBiciWhatsApp(event) {
             event.preventDefault();
             const modelo = document.getElementById('bici-modelo').value;
