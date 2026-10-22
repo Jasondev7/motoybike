@@ -41,11 +41,55 @@
         body { font-family: 'Inter', sans-serif; }
         .font-heading { font-family: 'Montserrat', sans-serif; }
 
-        /* Animación de movimiento en la foto principal del hero */
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background-color: #0D0D0D;
+            z-index: 100;
+            display: flex;
+            flex-col;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+        }
+        #preloader.hidden-loader {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Animación del Logo en Preloader */
+        @keyframes pulse-logo {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 15px rgba(230, 0, 103, 0.4)); }
+            50% { transform: scale(1.08); filter: drop-shadow(0 0 35px rgba(230, 0, 103, 0.8)); }
+        }
+        .animate-loader-logo {
+            animation: pulse-logo 2s infinite ease-in-out;
+        }
+
+        /* Animaciones de Texto al Cargar */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+
+        /* Hero Background Zoom */
         @keyframes float-zoom {
-            0% { transform: scale(1.0) translate(0, 0); }
-            50% { transform: scale(1.08) translate(-1%, -1%); }
-            100% { transform: scale(1.03) translate(1%, 0.5%); }
+            0% { transform: scale(1.0); }
+            50% { transform: scale(1.06); }
+            100% { transform: scale(1.02); }
         }
         .animate-hero-bg {
             animation: float-zoom 20s infinite alternate ease-in-out;
@@ -56,89 +100,88 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
             background-size: 200px 200px;
         }
-
-        /* Cadena de Moto Lateral Decorativa */
-        .chain-border-left {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            width: 12px;
-            z-index: 40;
-            pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='24' viewBox='0 0 12 24'%3E%3Crect x='3' y='1' width='6' height='10' rx='3' fill='%23E60067' opacity='0.8'/%3E%3Crect x='4' y='13' width='4' height='10' rx='2' fill='%23333333'/%3E%3Ccircle cx='6' cy='6' r='1.5' fill='%23ffffff'/%3E%3Ccircle cx='6' cy='18' r='1.5' fill='%23E60067'/%3E%3C/svg%3E");
-            background-repeat: repeat-y;
-        }
-        .chain-border-right {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            width: 12px;
-            z-index: 40;
-            pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='24' viewBox='0 0 12 24'%3E%3Crect x='3' y='1' width='6' height='10' rx='3' fill='%23E60067' opacity='0.8'/%3E%3Crect x='4' y='13' width='4' height='10' rx='2' fill='%23333333'/%3E%3Ccircle cx='6' cy='6' r='1.5' fill='%23ffffff'/%3E%3Ccircle cx='6' cy='18' r='1.5' fill='%23E60067'/%3E%3C/svg%3E");
-            background-repeat: repeat-y;
-        }
     </style>
 </head>
 <body class="bg-white text-gray-900 min-h-screen flex flex-col justify-between selection:bg-denji-pink selection:text-white">
 
-    <!-- Cadenas Decorativas en los bordes de la pantalla -->
-    <div class="chain-border-left hidden md:block"></div>
-    <div class="chain-border-right hidden md:block"></div>
+    <!-- PRELOADER (PANTALLA DE CARGA CON LOGO EN GRANDE) -->
+    <div id="preloader">
+        <div class="flex flex-col items-center justify-center p-6 text-center">
+            <!-- Logo Vectorizado Grande -->
+            <svg class="w-48 h-48 sm:w-64 sm:h-64 animate-loader-logo mb-6" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="120" cy="120" r="100" stroke="#E60067" stroke-width="10" stroke-dasharray="15 10"/>
+                <path d="M70 120L110 160L170 80" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="120" y="205" fill="#E60067" font-family="Montserrat" font-weight="900" font-size="20" text-anchor="middle" letter-spacing="4">DENJI</text>
+            </svg>
+            <div class="font-heading font-black text-white text-xl tracking-widest uppercase">
+                TALLER <span class="text-denji-pink">DENJI</span>
+            </div>
+            <p class="text-xs text-gray-400 font-medium tracking-wider mt-2 uppercase">Cargando Taller en Terreno...</p>
+        </div>
+    </div>
 
-    <!-- Header Fijo Blanco -->
-    <header class="sticky top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm py-3">
+    <!-- Header Fijo Blanco Pulido sin Bordes Extraños -->
+    <header class="sticky top-0 w-full z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm py-3">
         <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
-            <a href="#taller" class="flex items-center py-1">
-                <img src="logo.png" alt="Taller DENJI Moto & Bike Repair" class="h-16 sm:h-20 w-auto object-contain">
+            
+            <!-- Logo Vectorizado Blanco/Transparente Integrado -->
+            <a href="#taller" class="flex items-center gap-3 py-1 group">
+                <svg class="h-10 w-10 sm:h-12 sm:w-12 transition-transform group-hover:scale-105" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="120" cy="120" r="100" stroke="#E60067" stroke-width="12"/>
+                    <path d="M70 120L110 160L170 80" stroke="#0D0D0D" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div class="flex flex-col">
+                    <span class="font-heading font-black text-lg sm:text-xl text-gray-900 leading-none uppercase tracking-tight">
+                        DENJI <span class="text-denji-pink">REPAIR</span>
+                    </span>
+                    <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest mt-0.5">Moto & Bike Service</span>
+                </div>
             </a>
 
             <div class="flex items-center gap-5 sm:gap-8">
                 <nav class="hidden md:flex items-center gap-6">
-                    <a href="#taller" class="font-heading font-bold text-sm tracking-wide text-gray-800 hover:text-denji-pink transition-colors flex items-center gap-1.5">
+                    <a href="#taller" class="font-heading font-bold text-xs tracking-wider text-gray-800 hover:text-denji-pink transition-colors uppercase flex items-center gap-1.5">
                         <i data-lucide="wrench" class="w-4 h-4 text-denji-pink"></i>
                         TALLER
                     </a>
-                    <a href="#servicios" class="font-heading font-bold text-sm tracking-wide text-gray-800 hover:text-denji-pink transition-colors flex items-center gap-1.5">
+                    <a href="#servicios" class="font-heading font-bold text-xs tracking-wider text-gray-800 hover:text-denji-pink transition-colors uppercase flex items-center gap-1.5">
                         <i data-lucide="layout-grid" class="w-4 h-4 text-denji-pink"></i>
                         SERVICIOS
                     </a>
                 </nav>
 
                 <button onclick="openMotoModal()" 
-                   class="inline-flex items-center gap-2.5 bg-denji-pink hover:bg-pink-700 text-white font-heading font-bold px-5 py-3 rounded-full transition-all transform hover:scale-105 shadow-md text-sm shadow-denji-pink/30">
+                   class="inline-flex items-center gap-2 bg-denji-pink hover:bg-pink-700 text-white font-heading font-bold px-5 py-2.5 rounded-full transition-all transform hover:scale-105 shadow-md text-xs sm:text-sm shadow-denji-pink/20">
                     <i data-lucide="message-circle" class="w-4 h-4"></i>
-                    <span>Cotizar por WhatsApp</span>
+                    <span>Cotizar WhatsApp</span>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- HERO SECTION GARAGE / CINEMATIC -->
-    <section id="taller" class="relative bg-denji-dark min-h-[calc(100vh-90px)] flex items-center justify-center overflow-hidden py-20">
+    <!-- HERO SECTION GARAGE / CINEMATIC CON ANIMACIONES DE TEXTO -->
+    <section id="taller" class="relative bg-denji-dark min-h-[calc(100vh-80px)] flex items-center justify-center overflow-hidden py-20">
         <div class="absolute inset-0 z-0 overflow-hidden">
             <img src="hero.jpg" alt="Taller DENJI Moto & Bike Repair trabajando en terreno" class="w-full h-full object-cover animate-hero-bg opacity-75">
             <div class="absolute inset-0 grunge-divider pointer-events-none z-10"></div>
             <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-white z-20"></div>
         </div>
 
-        <div class="relative z-30 max-w-5xl mx-auto px-6 text-center pt-12">
-            <span class="inline-block bg-denji-pink/20 border border-denji-pink/40 text-denji-pink font-heading font-bold text-xs sm:text-sm tracking-widest px-4 py-1.5 rounded-full mb-6 uppercase">
+        <div class="relative z-30 max-w-5xl mx-auto px-6 text-center pt-8">
+            <span class="inline-block bg-denji-pink/20 border border-denji-pink/40 text-denji-pink font-heading font-bold text-xs sm:text-sm tracking-widest px-4 py-1.5 rounded-full mb-6 uppercase animate-fade-in-up">
                 Servicio Técnico a Domicilio en Santiago
             </span>
 
-            <h1 class="font-heading font-black text-4xl sm:text-6xl md:text-7xl tracking-tight leading-none mb-6 text-white uppercase drop-shadow-2xl">
+            <h1 class="font-heading font-black text-4xl sm:text-6xl md:text-7xl tracking-tight leading-none mb-6 text-white uppercase drop-shadow-2xl animate-fade-in-up delay-100">
                 MECÁNICO PROFESIONAL<br>
                 <span class="bg-gradient-to-r from-denji-pink via-pink-400 to-white bg-clip-text text-transparent">DIRECTO EN TU TERRENO</span>
             </h1>
 
-            <p class="text-base sm:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed font-medium drop-shadow-lg">
+            <p class="text-base sm:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed font-medium drop-shadow-lg animate-fade-in-up delay-200">
                 Mantención, reparación y puesta en marcha técnica de motocicletas y bicicletas sin necesidad de grúas ni traslados.
             </p>
 
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-300">
                 <button onclick="openMotoModal()" 
                    class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-denji-pink hover:bg-pink-700 text-white font-heading font-extrabold text-base px-8 py-4 rounded-2xl transition-all shadow-2xl transform hover:-translate-y-1 shadow-denji-pink/50">
                     <i data-lucide="bike" class="w-5 h-5"></i>
@@ -334,10 +377,10 @@
                     <span>@denji.cl</span>
                 </a>
                 
-                <a href="https://api.whatsapp.com/send?phone=5695546985&text=Hola%20Taller%20DENJI,%20quisiera%20consultar%20por%20un%20servicio" target="_blank" 
+                <a href="https://api.whatsapp.com/send?phone=56965546985&text=Hola%20Taller%20DENJI,%20quisiera%20consultar%20por%20un%20servicio" target="_blank" 
                    class="inline-flex items-center gap-2 bg-white/5 hover:bg-denji-pink text-white px-5 py-2.5 rounded-xl border border-white/10 transition-all text-xs font-heading font-bold">
                     <i data-lucide="phone-call" class="w-4 h-4 text-denji-pink"></i>
-                    <span>+56 9 5546 985</span>
+                    <span>+56 9 6554 6985</span>
                 </a>
             </div>
 
@@ -349,9 +392,17 @@
         </div>
     </footer>
 
-    <!-- Script de Interacción -->
+    <!-- Scripts de Interacción -->
     <script>
         lucide.createIcons();
+
+        // Control del Preloader de Carga
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.classList.add('hidden-loader');
+            }, 800); // Muestra el logo durante la carga y desaparece suavemente
+        });
 
         // Modal Motos
         function openMotoModal() {
@@ -369,7 +420,7 @@
             document.getElementById('bici-modal').classList.add('hidden');
         }
 
-        // Envío WhatsApp Motos
+        // Envío WhatsApp Motos (Número +56965546985)
         function enviarMotoWhatsApp(event) {
             event.preventDefault();
 
@@ -379,11 +430,11 @@
 
             const mensaje = encodeURIComponent(`Hola Taller DENJI, necesito cotizar un servicio de MOTOCICLETA a domicilio:\n\n*Moto:* ${modelo}\n*Ubicación:* ${ubicacion}\n*Servicio requerido:* ${trabajo}`);
 
-            window.open(`https://api.whatsapp.com/send?phone=5695546985&text=${mensaje}`, '_blank');
+            window.open(`https://api.whatsapp.com/send?phone=56965546985&text=${mensaje}`, '_blank');
             closeMotoModal();
         }
 
-        // Envío WhatsApp Bicis
+        // Envío WhatsApp Bicis (Número +56965546985)
         function enviarBiciWhatsApp(event) {
             event.preventDefault();
 
@@ -393,7 +444,7 @@
 
             const mensaje = encodeURIComponent(`Hola Taller DENJI, necesito cotizar un servicio de BICICLETA a domicilio:\n\n*Bicicleta:* ${modelo}\n*Ubicación:* ${ubicacion}\n*Servicio requerido:* ${trabajo}`);
 
-            window.open(`https://api.whatsapp.com/send?phone=5695546985&text=${mensaje}`, '_blank');
+            window.open(`https://api.whatsapp.com/send?phone=56965546985&text=${mensaje}`, '_blank');
             closeBiciModal();
         }
     </script>
